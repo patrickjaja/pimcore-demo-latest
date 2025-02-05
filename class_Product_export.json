@@ -1,0 +1,32 @@
+{
+  "className": "Product",
+  "description": "Defines a standard product",
+  "fields": [
+    {
+      "name": "name",
+      "type": "text",
+      "label": "Product Name",
+      "mandatory": true
+    },
+    {
+      "name": "description",
+      "type": "textarea",
+      "label": "Description"
+    },
+    {
+      "name": "price",
+      "type": "number",
+      "label": "Price"
+    },
+    {
+        "name": "active",
+        "type": "boolean",
+        "label": "Active"
+    },
+    {
+      "name": "productImage",
+      "type": "image",
+      "label": "Product Image"
+    }
+  ]
+}
