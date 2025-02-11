@@ -71,7 +71,7 @@ Be aware that this might lead to a theoretically compatible but untested combina
  - docker-compose down --volumes
  - docker compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore --skip-database-data --skip-database-data-dump
  - example preview url http://localhost/en/shop/Products/coffee-filters/EN-MelittaR-Original--100--braun--40-St~p1193?pimcore_object_preview=1193&dc=1739303623
-
+ - http://localhost/en/shop/Products/EN-MelittaR-Original--100--braun--40-St~p1193
 
 PimCore Project Stack Notes
  - https://docs.pimcore.com/platform/Pimcore/Deployment/Deployment_Tools/#potentially-useful-commands
