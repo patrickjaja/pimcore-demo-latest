@@ -9,7 +9,6 @@
  * -- name [input]
  * -- productNamePart [input]
  * - filterDefinition [manyToOneRelation]
- * - cars [reverseObjectRelation]
  */
 
 return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
@@ -19,7 +18,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'title' => '',
    'description' => '',
    'creationDate' => 0,
-   'modificationDate' => 1693492492,
+   'modificationDate' => 1739312648,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '\\Pimcore\\Bundle\\EcommerceFrameworkBundle\\Model\\AbstractCategory',
@@ -172,6 +171,8 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'permissionEdit' => NULL,
                  'labelWidth' => 100,
                  'labelAlign' => 'left',
+                 'width' => NULL,
+                 'height' => NULL,
                  'fieldDefinitionsCache' => NULL,
               )),
             ),
@@ -226,7 +227,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                     'classes' => 'FilterDefinition',
                   ),
                 ),
-                 'displayMode' => NULL,
+                 'displayMode' => 'grid',
                  'pathFormatterClass' => '',
                  'assetInlineDownloadAllowed' => false,
                  'assetUploadPath' => '',
@@ -241,46 +242,6 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                 array (
                 ),
                  'width' => 800,
-              )),
-              1 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\ReverseObjectRelation::__set_state(array(
-                 'name' => 'cars',
-                 'title' => 'Cars',
-                 'tooltip' => '',
-                 'mandatory' => false,
-                 'noteditable' => false,
-                 'index' => false,
-                 'locked' => false,
-                 'style' => '',
-                 'permissions' => NULL,
-                 'fieldtype' => '',
-                 'relationType' => true,
-                 'invisible' => false,
-                 'visibleGridView' => false,
-                 'visibleSearch' => false,
-                 'blockedVarsForExport' => 
-                array (
-                ),
-                 'classes' => 
-                array (
-                ),
-                 'displayMode' => NULL,
-                 'pathFormatterClass' => '',
-                 'maxItems' => NULL,
-                 'visibleFields' => NULL,
-                 'allowToCreateNewObject' => true,
-                 'allowToClearRelation' => true,
-                 'optimizedAdminLoading' => false,
-                 'enableTextSelection' => false,
-                 'visibleFieldDefinitions' => 
-                array (
-                ),
-                 'width' => '',
-                 'height' => '',
-                 'ownerClassName' => 'Car',
-                 'ownerClassId' => NULL,
-                 'ownerFieldName' => 'categories',
-                 'lazyLoading' => true,
               )),
             ),
              'locked' => false,
@@ -348,6 +309,46 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'enableGridLocking' => false,
    'deletedDataComponents' => 
   array (
+    0 => 
+    \Pimcore\Model\DataObject\ClassDefinition\Data\ReverseObjectRelation::__set_state(array(
+       'name' => 'cars',
+       'title' => 'Cars',
+       'tooltip' => '',
+       'mandatory' => false,
+       'noteditable' => false,
+       'index' => false,
+       'locked' => false,
+       'style' => '',
+       'permissions' => NULL,
+       'fieldtype' => '',
+       'relationType' => true,
+       'invisible' => false,
+       'visibleGridView' => false,
+       'visibleSearch' => false,
+       'blockedVarsForExport' => 
+      array (
+      ),
+       'classes' => 
+      array (
+      ),
+       'displayMode' => NULL,
+       'pathFormatterClass' => '',
+       'maxItems' => NULL,
+       'visibleFields' => NULL,
+       'allowToCreateNewObject' => true,
+       'allowToClearRelation' => true,
+       'optimizedAdminLoading' => false,
+       'enableTextSelection' => false,
+       'visibleFieldDefinitions' => 
+      array (
+      ),
+       'width' => '',
+       'height' => '',
+       'ownerClassName' => 'Car',
+       'ownerClassId' => NULL,
+       'ownerFieldName' => 'categories',
+       'lazyLoading' => true,
+    )),
   ),
    'blockedVarsForExport' => 
   array (

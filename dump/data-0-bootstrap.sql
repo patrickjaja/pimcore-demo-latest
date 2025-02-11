@@ -277,7 +277,7 @@ CREATE TABLE `messenger_messages` (
   `delivered_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_75EA56E016BA31DB` (`delivered_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=11322 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11344 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 
@@ -325,6 +325,22 @@ CREATE TABLE `object_brick_query_SaleInformation_CoffeeFilterPaper` (
 
 
 
+DROP TABLE IF EXISTS `object_brick_query_SaleInformation_Machine`;
+CREATE TABLE `object_brick_query_SaleInformation_Machine` (
+  `id` int(11) unsigned NOT NULL DEFAULT 0,
+  `fieldname` varchar(190) NOT NULL DEFAULT '',
+  `availabilityPieces` double DEFAULT NULL,
+  `availabilityType` varchar(190) DEFAULT NULL,
+  `priceInEUR` decimal(10,2) DEFAULT NULL,
+  `productNumber` varchar(190) DEFAULT NULL,
+  PRIMARY KEY (`id`,`fieldname`),
+  KEY `id` (`id`),
+  KEY `fieldname` (`fieldname`),
+  CONSTRAINT `fk_object_brick_query_SaleInformation_Machine__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
 DROP TABLE IF EXISTS `object_brick_store_PaymentProviderPayPalSmartButton_EF_OSO`;
 CREATE TABLE `object_brick_store_PaymentProviderPayPalSmartButton_EF_OSO` (
   `id` int(11) unsigned NOT NULL DEFAULT 0,
@@ -355,6 +371,22 @@ CREATE TABLE `object_brick_store_SaleInformation_CoffeeFilterPaper` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_store_SaleInformation_CoffeeFilterPaper__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+DROP TABLE IF EXISTS `object_brick_store_SaleInformation_Machine`;
+CREATE TABLE `object_brick_store_SaleInformation_Machine` (
+  `id` int(11) unsigned NOT NULL DEFAULT 0,
+  `fieldname` varchar(190) NOT NULL DEFAULT '',
+  `availabilityPieces` double DEFAULT NULL,
+  `availabilityType` varchar(190) DEFAULT NULL,
+  `priceInEUR` decimal(10,2) DEFAULT NULL,
+  `productNumber` varchar(190) DEFAULT NULL,
+  PRIMARY KEY (`id`,`fieldname`),
+  KEY `id` (`id`),
+  KEY `fieldname` (`fieldname`),
+  CONSTRAINT `fk_object_brick_store_SaleInformation_Machine__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -1023,6 +1055,20 @@ CREATE TABLE `object_localized_data_EV` (
 
 
 
+DROP TABLE IF EXISTS `object_localized_data_Machine`;
+CREATE TABLE `object_localized_data_Machine` (
+  `ooo_id` int(11) unsigned NOT NULL DEFAULT 0,
+  `language` varchar(10) NOT NULL DEFAULT '',
+  `name` varchar(100) DEFAULT NULL,
+  `previewImageUrl` varchar(190) DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  PRIMARY KEY (`ooo_id`,`language`),
+  KEY `language` (`language`),
+  CONSTRAINT `fk_object_localized_data_Machine__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
 DROP TABLE IF EXISTS `object_localized_data_NE`;
 CREATE TABLE `object_localized_data_NE` (
   `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
@@ -1159,6 +1205,48 @@ CREATE TABLE `object_localized_query_EV_fr` (
   KEY `language` (`language`),
   KEY `IDX_9DC29731A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_EV_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+DROP TABLE IF EXISTS `object_localized_query_Machine_de`;
+CREATE TABLE `object_localized_query_Machine_de` (
+  `ooo_id` int(11) unsigned NOT NULL DEFAULT 0,
+  `language` varchar(10) NOT NULL DEFAULT '',
+  `name` varchar(100) DEFAULT NULL,
+  `previewImageUrl` varchar(190) DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  PRIMARY KEY (`ooo_id`,`language`),
+  KEY `language` (`language`),
+  CONSTRAINT `fk_object_localized_query_Machine_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+DROP TABLE IF EXISTS `object_localized_query_Machine_en`;
+CREATE TABLE `object_localized_query_Machine_en` (
+  `ooo_id` int(11) unsigned NOT NULL DEFAULT 0,
+  `language` varchar(10) NOT NULL DEFAULT '',
+  `name` varchar(100) DEFAULT NULL,
+  `previewImageUrl` varchar(190) DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  PRIMARY KEY (`ooo_id`,`language`),
+  KEY `language` (`language`),
+  CONSTRAINT `fk_object_localized_query_Machine_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+DROP TABLE IF EXISTS `object_localized_query_Machine_fr`;
+CREATE TABLE `object_localized_query_Machine_fr` (
+  `ooo_id` int(11) unsigned NOT NULL DEFAULT 0,
+  `language` varchar(10) NOT NULL DEFAULT '',
+  `name` varchar(100) DEFAULT NULL,
+  `previewImageUrl` varchar(190) DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  PRIMARY KEY (`ooo_id`,`language`),
+  KEY `language` (`language`),
+  CONSTRAINT `fk_object_localized_query_Machine_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -1306,7 +1394,6 @@ CREATE TABLE `object_query_CA` (
   `oo_id` int(10) unsigned NOT NULL DEFAULT 0,
   `oo_classId` varchar(50) DEFAULT 'CA',
   `oo_className` varchar(255) DEFAULT 'Category',
-  `cars` text DEFAULT NULL,
   `filterDefinition__id` int(11) DEFAULT NULL,
   `filterDefinition__type` enum('document','asset','object') DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
@@ -1576,6 +1663,18 @@ CREATE TABLE `object_query_EV` (
   `status` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_query_EV__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+DROP TABLE IF EXISTS `object_query_Machine`;
+CREATE TABLE `object_query_Machine` (
+  `oo_id` int(11) unsigned NOT NULL DEFAULT 0,
+  `oo_classId` varchar(50) DEFAULT 'Machine',
+  `oo_className` varchar(255) DEFAULT 'Machine',
+  `categories` text DEFAULT NULL,
+  PRIMARY KEY (`oo_id`),
+  CONSTRAINT `fk_object_query_Machine__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -2014,6 +2113,26 @@ CREATE TABLE `object_relations_EV` (
 
 
 
+DROP TABLE IF EXISTS `object_relations_Machine`;
+CREATE TABLE `object_relations_Machine` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `src_id` int(11) unsigned NOT NULL DEFAULT 0,
+  `dest_id` int(11) unsigned NOT NULL DEFAULT 0,
+  `type` enum('object','asset','document') NOT NULL,
+  `fieldname` varchar(70) NOT NULL DEFAULT '0',
+  `index` int(11) unsigned NOT NULL DEFAULT 0,
+  `ownertype` enum('object','fieldcollection','localizedfield','objectbrick') NOT NULL DEFAULT 'object',
+  `ownername` varchar(70) NOT NULL DEFAULT '',
+  `position` varchar(70) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `forward_lookup` (`src_id`,`ownertype`,`ownername`,`position`),
+  KEY `reverse_lookup` (`dest_id`,`type`),
+  KEY `fieldname` (`fieldname`),
+  CONSTRAINT `fk_object_relations_Machine__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
 DROP TABLE IF EXISTS `object_relations_NE`;
 CREATE TABLE `object_relations_NE` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -2322,6 +2441,15 @@ CREATE TABLE `object_store_EV` (
   `status` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EV__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+DROP TABLE IF EXISTS `object_store_Machine`;
+CREATE TABLE `object_store_Machine` (
+  `oo_id` int(11) unsigned NOT NULL DEFAULT 0,
+  PRIMARY KEY (`oo_id`),
+  CONSTRAINT `fk_object_store_Machine__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
