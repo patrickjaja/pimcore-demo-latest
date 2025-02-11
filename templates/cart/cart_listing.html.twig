@@ -81,11 +81,11 @@
 
                                         </div>
                                         <div class="col-8 text-sm-left col-md-5 text-md-left col-md-4">
-                                            <h6 style="padding-top: 3px" class="product-name">{{ product.oSName }}</h6>
+                                            <h6 style="padding-top: 3px" class="product-name">{{ product.name }}</h6>
                                             {% if( product is instanceof('App\\Model\\Product\\Car')) %}
                                                 <p class="text-muted small">{{ product.subText | raw }}</p>
                                             {% elseif(product.saleInformation is not empty and product.saleInformation.saleInformation)  %}
-                                                <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+{#                                                <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>#}
                                             {% endif %}
 
                                             {% set priceInfo = item.priceInfo %}
@@ -158,11 +158,11 @@
 
                                         </div>
                                         <div class="col-8 text-sm-left text-md-left">
-                                            <h6 style="padding-top: 3px" class="product-name">{{ product.oSName }}</h6>
+                                            <h6 style="padding-top: 3px" class="product-name">{{ product.name }}</h6>
                                             {% if( product is instanceof('App\\Model\\Product\\Car')) %}
                                                 <p class="text-muted small">{{ product.subText | raw }}</p>
                                             {% elseif(product.saleInformation.saleInformation)  %}
-                                                <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>
+{#                                                <p class="text-muted small">{{ 'general.condition' | trans }}: {{ ('attribute.' ~ product.saleInformation.saleInformation.condition) | trans }}</p>#}
                                             {% endif %}
 
                                         </div>

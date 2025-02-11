@@ -4,9 +4,8 @@
  * Fields Summary:
  * - availabilityPieces [numeric]
  * - availabilityType [select]
- * - condition [select]
  * - priceInEUR [numeric]
- * - milage [quantityValue]
+ * - productNumber [input]
  */
 
 return \Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
@@ -112,64 +111,15 @@ return \Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
               ),
             ),
              'defaultValue' => '',
-             'optionsProviderClass' => '',
-             'optionsProviderData' => '',
              'columnLength' => 190,
              'dynamicOptions' => false,
              'defaultValueGenerator' => '',
              'width' => '',
+             'optionsProviderType' => 'configure',
+             'optionsProviderClass' => '',
+             'optionsProviderData' => '',
           )),
           2 => 
-          \Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
-             'name' => 'condition',
-             'title' => 'Condition',
-             'tooltip' => '',
-             'mandatory' => false,
-             'noteditable' => false,
-             'index' => false,
-             'locked' => false,
-             'style' => '',
-             'permissions' => NULL,
-             'fieldtype' => '',
-             'relationType' => false,
-             'invisible' => false,
-             'visibleGridView' => false,
-             'visibleSearch' => false,
-             'blockedVarsForExport' => 
-            array (
-            ),
-             'options' => 
-            array (
-              0 => 
-              array (
-                'key' => 'broken',
-                'value' => 'broken',
-              ),
-              1 => 
-              array (
-                'key' => 'reworked',
-                'value' => 'reworked',
-              ),
-              2 => 
-              array (
-                'key' => 'used',
-                'value' => 'used',
-              ),
-              3 => 
-              array (
-                'key' => 'new',
-                'value' => 'new',
-              ),
-            ),
-             'defaultValue' => '',
-             'optionsProviderClass' => '',
-             'optionsProviderData' => '',
-             'columnLength' => 190,
-             'dynamicOptions' => false,
-             'defaultValueGenerator' => '',
-             'width' => '',
-          )),
-          3 => 
           \Pimcore\Model\DataObject\ClassDefinition\Data\Numeric::__set_state(array(
              'name' => 'priceInEUR',
              'title' => 'Price in EUR',
@@ -199,10 +149,10 @@ return \Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'width' => '',
              'defaultValueGenerator' => '',
           )),
-          4 => 
-          \Pimcore\Model\DataObject\ClassDefinition\Data\QuantityValue::__set_state(array(
-             'name' => 'milage',
-             'title' => 'Milage',
+          3 => 
+          \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+             'name' => 'productNumber',
+             'title' => 'Product Number',
              'tooltip' => '',
              'mandatory' => false,
              'noteditable' => false,
@@ -218,23 +168,16 @@ return \Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
              'blockedVarsForExport' => 
             array (
             ),
-             'defaultUnit' => '7',
-             'validUnits' => 
+             'defaultValue' => NULL,
+             'columnLength' => 190,
+             'regex' => '',
+             'regexFlags' => 
             array (
-              0 => '8',
-              1 => '7',
             ),
              'unique' => false,
-             'autoConvert' => false,
+             'showCharCount' => false,
+             'width' => '',
              'defaultValueGenerator' => '',
-             'width' => NULL,
-             'defaultValue' => NULL,
-             'integer' => false,
-             'unsigned' => false,
-             'minValue' => NULL,
-             'maxValue' => NULL,
-             'decimalSize' => NULL,
-             'decimalPrecision' => NULL,
           )),
         ),
          'locked' => false,
@@ -244,7 +187,7 @@ return \Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
          'fieldtype' => 'panel',
          'layout' => NULL,
          'border' => false,
-         'icon' => NULL,
+         'icon' => '',
          'labelWidth' => 100,
          'labelAlign' => 'left',
       )),
@@ -264,17 +207,18 @@ return \Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
    'blockedVarsForExport' => 
   array (
   ),
+   'activeDispatchingEvents' => 
+  array (
+  ),
    'classDefinitions' => 
   array (
     0 => 
     array (
-      'classname' => 'Car',
+      'classname' => 'CoffeeFilterPaper',
       'fieldname' => 'saleInformation',
     ),
-    1 => 
-    array (
-      'classname' => 'AccessoryPart',
-      'fieldname' => 'saleInformation',
-    ),
+  ),
+   'activeDispatchingEvents' => 
+  array (
   ),
 ));

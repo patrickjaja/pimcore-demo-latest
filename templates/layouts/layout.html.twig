@@ -136,7 +136,7 @@
                 <div id="content" class="container">
                     <div class="row">
                         {% set leftNavShow = document.getProperty('left_nav_show') %}
-                        {% set showBreadcrumbs = (hideBreadcrumbs is defined) ? not hideBreadcrumbs : true %}
+                        {% set showBreadcrumbs = false %}
                         {% set mainColClass = leftNavShow ? 'col-md-9 pt-3 pt-md-5 order-last' : 'col-md-12 pt-3 pt-md-5' %}
 
                         <div class="{{ mainColClass }}">

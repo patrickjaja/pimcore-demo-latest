@@ -1,0 +1,45 @@
+{# @var product \App\Model\Product\Car #}
+
+{% import 'product/macros.html.twig' as macros %}
+
+{% extends 'layouts/layout.html.twig' %}
+
+{# bootstrap 4.3.1 #}
+{% block content %}
+    <div class="container product-page">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{{ product.previewImageUrl }}" alt="{{ product.name }}" class="img-fluid product-image">
+            </div>
+            <div class="col-md-6">
+                <h4>{{ product.name }}</h4>
+                <p class="product-description">{{ product.description | raw }}</p> {# | raw if description contains HTML #}
+                <p class="product-price">{{ product.saleInformation.saleInformation.priceInEUR | currency('EUR') }}</p>
+
+                <form id="shop_add_to_cart_form_{{ product.id }}" method="post" action="{{ path('shop-add-to-cart', { id: product.id }) }}">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('addToCart') }}">
+                    <button type="submit" class="btn btn-success btn-block">{{ 'general.add-to-cart' | trans }}</button> {# Use button for form submission #}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }} {# Include parent stylesheets #}
+    <style>
+        .product-page .product-image {
+            max-width: 100%; /* Make image responsive */
+            height: auto;
+        }
+
+        .product-page .product-description {
+            margin-bottom: 20px; /* Add some space below description */
+        }
+        .product-price{
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+    </style>
+{% endblock %}

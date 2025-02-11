@@ -65,60 +65,61 @@ class ProductController extends BaseController
         Concrete $product,
         ProductLinkGenerator $productLinkGenerator
     ): Response {
-        if (!(
-                $product && ($product->isPublished() && (($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR) || $product instanceof AccessoryPart) || $this->verifyPreviewRequest($request, $product))
-            )
-        ) {
-            throw new NotFoundHttpException('Product not found.');
-        }
+//        if (!(
+//                $product && ($product->isPublished() && (($product instanceof Car && $product->getObjectType() == Car::OBJECT_TYPE_ACTUAL_CAR) || $product instanceof AccessoryPart) || $this->verifyPreviewRequest($request, $product))
+//            )
+//        ) {
+//            throw new NotFoundHttpException('Product not found.');
+//        }
 
         //redirect to main url
-        $generatorUrl = $productLinkGenerator->generate($product);
-        if ($generatorUrl != $request->getPathInfo()) {
-            $queryString = $request->getQueryString();
+//        $generatorUrl = $productLinkGenerator->generate($product);
+//        if ($generatorUrl != $request->getPathInfo()) {
+//            $queryString = $request->getQueryString();
+//
+//            return $this->redirect($generatorUrl . ($queryString ? '?' . $queryString : ''));
+//        }
 
-            return $this->redirect($generatorUrl . ($queryString ? '?' . $queryString : ''));
-        }
-
-        $breadcrumbHelperService->enrichProductDetailPage($product);
-        $headTitleHelper($product->getOSName());
+//        $breadcrumbHelperService->enrichProductDetailPage($product);
+        $headTitleHelper($product->getName());
 
         $paramBag = $this->getAllParameters($request);
         $paramBag['product'] = $product;
 
         //track segments for personalization
-        $segmentTrackingHelperService->trackSegmentsForProduct($product);
+//        $segmentTrackingHelperService->trackSegmentsForProduct($product);
 
-        $trackingManager = $ecommerceFactory->getTrackingManager();
-        $trackingManager->trackProductView($product);
+        // ToDo: Contains hardcoded getter
+        // $trackingManager = $ecommerceFactory->getTrackingManager();
+        // $trackingManager->trackProductView($product);
 
-        if ($product instanceof Car) {
-            foreach ($product->getAccessories() as $accessory) {
-                $trackingManager->trackProductImpression($accessory, 'crosssells');
-            }
+//        if ($product instanceof Car) {
+//            foreach ($product->getAccessories() as $accessory) {
+//                $trackingManager->trackProductImpression($accessory, 'crosssells');
+//            }
 
-            return $this->render('product/detail.html.twig', $paramBag);
-        } elseif ($product instanceof AccessoryPart) {
+            return $this->render('product/detail_coffee_filters.html.twig', $paramBag);
+//        } elseif ($product instanceof AccessoryPart) {
+//
+//            // get all compatible products
+//            $productList = $ecommerceFactory->getIndexService()->getProductListForCurrentTenant();
+//            $productList->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
+//            if ($productList instanceof DefaultMysql) {
+//                $productList->addCondition('id IN (' . implode(',', $product->getCompatibleToProductIds()) . ')', 'id');
+//            } elseif ($productList instanceof AbstractElasticSearch) {
+//                $productList->addCondition(['terms' => ['system.id' => $product->getCompatibleToProductIds()]], 'id');
+//            }
+//
+//            foreach ($productList as $compatibleProduct) {
+//                $trackingManager->trackProductImpression($compatibleProduct, 'crosssells');
+//            }
+//
+//            $paramBag['compatibleTo'] = $productList;
+//
+//            return $this->render('product/detail_accessory.html.twig', $paramBag);
+//        }
 
-            // get all compatible products
-            $productList = $ecommerceFactory->getIndexService()->getProductListForCurrentTenant();
-            $productList->setVariantMode(ProductListInterface::VARIANT_MODE_VARIANTS_ONLY);
-            if ($productList instanceof DefaultMysql) {
-                $productList->addCondition('id IN (' . implode(',', $product->getCompatibleToProductIds()) . ')', 'id');
-            } elseif ($productList instanceof AbstractElasticSearch) {
-                $productList->addCondition(['terms' => ['system.id' => $product->getCompatibleToProductIds()]], 'id');
-            }
-
-            foreach ($productList as $compatibleProduct) {
-                $trackingManager->trackProductImpression($compatibleProduct, 'crosssells');
-            }
-
-            $paramBag['compatibleTo'] = $productList;
-
-            return $this->render('product/detail_accessory.html.twig', $paramBag);
-        }
-
-        throw new NotFoundHttpException('Unsupported Product type.');
+//        throw new NotFoundHttpException('Unsupported Product type.');
     }
 
     /**
@@ -309,7 +310,7 @@ class ProductController extends BaseController
             foreach ($productListing as $product) {
                 $result['href'] = $productLinkGenerator->generateWithMockup($product, []);
 
-                $result['product'] = $product->getOSName() ?? '';
+                $result['product'] = $product->getName() ?? '';
                 if ($product instanceof Car) {
                     $result['product'] .= ' ' . $product->getColor()[0] . ', ' . $product->getCarClass();
                 }

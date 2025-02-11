@@ -68,8 +68,21 @@ Be aware that this might lead to a theoretically compatible but untested combina
 ## personal notes
  ### start xdebug
  - php -d xdebug.mode=debug -d xdebug.client_host=172.23.0.1 -d xdebug.client_port=9003 -d xdebug.idekey="PHPSTORM" -d xdebug.start_with_request=yes bin/console  pimcore:definition:import:class class.json
+ - docker-compose down --volumes
+ - docker compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore --skip-database-data --skip-database-data-dump
+ - example preview url http://localhost/en/shop/Products/coffee-filters/EN-MelittaR-Original--100--braun--40-St~p1193?pimcore_object_preview=1193&dc=1739303623
 
 
 PimCore Project Stack Notes
  - https://docs.pimcore.com/platform/Pimcore/Deployment/Deployment_Tools/#potentially-useful-commands
  - https://docs.pimcore.com/platform/Workflow_Automation/Work_with_WAI
+
+ToDo:
+ - create fork of original demo project
+   - automatically delete product data
+   - automatically add passed ai product data
+
+
+AI Generated Demo, behind the scenes:
+ - Base: https://github.com/pimcore/demo
+ - 

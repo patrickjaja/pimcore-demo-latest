@@ -71,9 +71,9 @@ class CartController extends FrontendController
         $cart->addItem($product, 1);
         $cart->save();
 
-        $trackingManager = $ecommerceFactory->getTrackingManager();
-        $trackingManager->trackCartProductActionAdd($cart, $product);
-        $trackingManager->forwardTrackedCodesAsFlashMessage();
+//        $trackingManager = $ecommerceFactory->getTrackingManager();
+//        $trackingManager->trackCartProductActionAdd($cart, $product);
+//        $trackingManager->forwardTrackedCodesAsFlashMessage();
 
         return $this->redirectToRoute('shop-cart-detail');
     }
@@ -110,8 +110,8 @@ class CartController extends FrontendController
             }
             $cart->save();
 
-            $trackingManager = $ecommerceFactory->getTrackingManager();
-            $trackingManager->trackCartUpdate($cart);
+//            $trackingManager = $ecommerceFactory->getTrackingManager();
+//            $trackingManager->trackCartUpdate($cart);
         }
 
         $breadcrumbHelperService->enrichCartPage();
@@ -139,11 +139,11 @@ class CartController extends FrontendController
         $cart->removeItem($id);
         $cart->save();
 
-        if ($product instanceof ProductInterface) {
-            $trackingManager = $ecommerceFactory->getTrackingManager();
-            $trackingManager->trackCartProductActionRemove($cart, $product);
-            $trackingManager->forwardTrackedCodesAsFlashMessage();
-        }
+//        if ($product instanceof ProductInterface) {
+//            $trackingManager = $ecommerceFactory->getTrackingManager();
+//            $trackingManager->trackCartProductActionRemove($cart, $product);
+//            $trackingManager->forwardTrackedCodesAsFlashMessage();
+//        }
 
         return $this->redirectToRoute('shop-cart-detail');
     }
@@ -163,8 +163,8 @@ class CartController extends FrontendController
                 if ($success) {
                     $this->addFlash('success', $translator->trans('cart.voucher-code-added'));
 
-                    $trackingManager = $ecommerceFactory->getTrackingManager();
-                    $trackingManager->trackCartUpdate($cart);
+//                    $trackingManager = $ecommerceFactory->getTrackingManager();
+//                    $trackingManager->trackCartUpdate($cart);
                 } else {
                     $this->addFlash('danger', $translator->trans('cart.voucher-code-could-not-be-added'));
                 }
@@ -190,8 +190,8 @@ class CartController extends FrontendController
                 $cart->removeVoucherToken($token);
                 $this->addFlash('success', $translator->trans('cart.voucher-code-removed'));
 
-                $trackingManager = $ecommerceFactory->getTrackingManager();
-                $trackingManager->trackCartUpdate($cart);
+//                $trackingManager = $ecommerceFactory->getTrackingManager();
+//                $trackingManager->trackCartUpdate($cart);
             } catch (VoucherServiceException $e) {
                 $this->addFlash('danger', $translator->trans('cart.error-voucher-code-' . $e->getCode()));
             }
