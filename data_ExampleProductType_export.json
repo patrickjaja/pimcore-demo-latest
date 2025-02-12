@@ -1,0 +1,28 @@
+{
+    "key": "example-product-1",
+    "parentFolderId": 744,
+    "targetObjectClass": "Pimcore\\Model\\DataObject\\ExampleProductType",
+    "isPublished": true,
+    "localizedfields": {
+      "de": {
+        "name": "DE Patrick Test",
+        "previewImageUrl": "https://www.melitta.de/media/560x560/52/f2/96/1695382277/filtertueten-melitta-original-100-braun-6627300-.png?ts=1739276411",
+        "description": "DEPatrick Test"
+      },
+      "en": {
+        "name": "EN Patrick Test",
+        "previewImageUrl": "https://www.melitta.de/media/560x560/52/f2/96/1695382277/filtertueten-melitta-original-100-braun-6627300-.png?ts=1739276411",
+        "description": "EN Patrick Test"
+      },
+      "fr": {
+        "name": "FR Patrick Test",
+        "previewImageUrl": "https://www.melitta.de/media/560x560/52/f2/96/1695382277/filtertueten-melitta-original-100-braun-6627300-.png?ts=1739276411",
+        "description": "FR Patrick Test"
+      }
+    },
+    "saleInformation": {
+        "priceInEUR": 1050,
+        "productNumber": "example-product-1"    
+    }
+    
+}
