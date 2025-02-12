@@ -1,5 +1,5 @@
 {
-    "key": "example-product-1",
+    "key": "example-product-2",
     "parentFolderId": 744,
     "targetObjectClass": "Pimcore\\Model\\DataObject\\ExampleProductType",
     "isPublished": true,

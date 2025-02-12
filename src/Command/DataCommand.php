@@ -27,9 +27,13 @@ use Pimcore\Model\DataObject\Objectbrick\Data\SaleInformation;
 use Pimcore\Model\DataObject\QuantityValue\Unit;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
+use Pimcore\Model\DataObject;
 
 class DataCommand extends AbstractCommand
 {
+    
     protected array $priceRange = [
         'from' => 57,
         'to' => 900
@@ -58,101 +62,87 @@ class DataCommand extends AbstractCommand
 
     public function configure(): void
     {
-        $this->setName('app:data-command');
+        $this
+            ->setName('app:data-command')
+            ->addArgument(
+                'file',
+                InputArgument::REQUIRED,
+                'Path to the JSON file containing import data'
+            );
     }
 
     public function execute(InputInterface $input, OutputInterface $output): int
     {
-//        $listing = new CoffeeFilterPaper\Listing();
-//        $listing->setName()
-//        foreach ($listing as $object) {
-//            $test = $object;
-
-//            $this->updateAccessoryERPInformation($object);
-//            $object->save();
-//        }
-
-        $demoObject = new ExampleProductType();
-        $demoObject->setKey('generateditem-1'.rand(1,100000));
-        $demoObject->setPublished(true);
-        $demoObject->setParentId(744); // Parent Folder "Product Data"
-        $localizedFields = $demoObject->getLocalizedfields();
-        $localizedFields->setItems( [
-            'de' => [
-                'name' => 'DE Patrick Test',
-                'previewImageUrl' => 'https://www.melitta.de/media/560x560/52/f2/96/1695382277/filtertueten-melitta-original-100-braun-6627300-.png?ts=1739276411',
-                'description' => 'DEPatrick Test',
-            ],
-            'en' => [
-                'name' => 'EN Patrick Test',
-                'previewImageUrl' => 'https://www.melitta.de/media/560x560/52/f2/96/1695382277/filtertueten-melitta-original-100-braun-6627300-.png?ts=1739276411',
-                'description' => 'EN Patrick Test',
-            ],
-            'fr' => [
-                'name' => 'FR Patrick Test',
-                'previewImageUrl' => 'https://www.melitta.de/media/560x560/52/f2/96/1695382277/filtertueten-melitta-original-100-braun-6627300-.png?ts=1739276411',
-                'description' => 'FR Patrick Test',
-            ],
-        ]
-        );
-//        $demoObject->setLocalizedfields($localizedFields);
-        $saleInformation = $demoObject->getSaleInformation()->getSaleInformation();
-        if(empty($saleInformation)) {
-            $saleInformation = new SaleInformation($demoObject);
-            $demoObject->getSaleInformation()->setSaleInformation($saleInformation);
+        $filePath = $input->getArgument('file');
+        
+        if (!file_exists($filePath)) {
+            $output->writeln(sprintf('<error>File not found: %s</error>', $filePath));
+            return 1;
         }
 
-//        $saleInformation = new SaleInformation($object);
-//        $sales = $demoObject->getSaleInformation();
-        $saleInformation->setPriceInEUR($this->generatePrice(30, 2000));
-        $saleInformation->setAvailabilityPieces(rand(1, 5));
-        $saleInformation->setAvailabilityType($this->availabilityTypes[rand(0,2)]);
-        $saleInformation->setProductNumber(rand(0,2000));
-        $demoObject->getSaleInformation()->setSaleInformation($saleInformation);
-        $demoObject->save();
-//        $sales->save($demoObject);
+        $jsonContent = file_get_contents($filePath);
+        $data = json_decode($jsonContent, true);
 
-//        $sales->save();
-//        $demoObject->setSaleInformation()
-//        $listing = new AccessoryPart\Listing();
-//        foreach ($listing as $object) {
-//            $this->updateAccessoryERPInformation($object);
-//            $object->save();
-//        }
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            $output->writeln('<error>Invalid JSON file</error>');
+            return 1;
+        }
 
-//        $listing = new Car\Listing();
-//        $listing->setCondition('o_id NOT IN (SELECT o_parentId FROM object_CAR)');
+        // Get target class from JSON
+        $targetClass = $data['targetObjectClass'] ?? 'Pimcore\Model\DataObject\ExampleProductType';
+        
+        try {
+            // Create new object instance
+            $object = new $targetClass();
+            $object->setKey($data['key']);
+            $object->setParentId($data['parentFolderId']);
+            $object->setPublished($data['isPublished'] ?? true);
 
-//        foreach($listing as $object) {
-//
-//            $output->writeln("processing element " . $object->getId());
-//
-//            $saleInformation = $object->getSaleInformation()->getSaleInformation();
-//
-//            if(empty($saleInformation)) {
-//                $saleInformation = new SaleInformation($object);
-//                $object->getSaleInformation()->setSaleInformation($saleInformation);
-//            }
-//
-//            $saleInformation->setAvailabilityPieces(rand(1, 5));
-//            $saleInformation->setAvailabilityType($this->availabilityTypes[rand(0,2)]);
-//            $saleInformation->setCondition($this->conditionTypes[rand(0,2)]);
-//            $saleInformation->setPriceInEUR($this->generateCarPrice($saleInformation->getCondition()));
-//            $saleInformation->setMilage(new QuantityValue(rand(30000, 300000), Unit::getByAbbreviation('km')));
-//
-//            $geoPoint = $this->locations[rand(0,4)];
-//
-//            $object->setLocation(new GeoCoordinates($geoPoint[0], $geoPoint[1]));
-//
-//            $object->setObjectType('actual-car');
-//
-//
-//            $object->save();
-//        }
+            // Handle localized fields
+            if (isset($data['localizedfields'])) {
+                $localizedFields = $object->getLocalizedfields();
+                $localizedFields->setItems($data['localizedfields']);
+            }
 
-        $output->writeln('done');
+            // Handle sale information
+            if (isset($data['saleInformation']) && method_exists($object, 'getSaleInformation')) {
+                $this->setSaleInformation($object, $data['saleInformation']);
+            }
 
+            $object->save();
+            $output->writeln(sprintf('Successfully created object with ID: %s', $object->getId()));
+
+        } catch (\Exception $e) {
+            $output->writeln(sprintf('<error>Error creating object: %s</error>', $e->getMessage()));
+            return 1;
+        }
+
+        $output->writeln('Import completed successfully');
         return 0;
+    }
+
+    protected function setSaleInformation($object, array $saleInfo): void
+    {
+        $saleInformation = $object->getSaleInformation()->getSaleInformation();
+        if (empty($saleInformation)) {
+            $saleInformation = new SaleInformation($object);
+            $object->getSaleInformation()->setSaleInformation($saleInformation);
+        }
+
+        if (isset($saleInfo['priceInEUR'])) {
+            $saleInformation->setPriceInEUR($saleInfo['priceInEUR']);
+        }
+        if (isset($saleInfo['productNumber'])) {
+            $saleInformation->setProductNumber($saleInfo['productNumber']);
+        }
+        
+        // Set default values for required fields if not provided
+        if (!isset($saleInfo['availabilityPieces'])) {
+            $saleInformation->setAvailabilityPieces(rand(1, 5));
+        }
+        if (!isset($saleInfo['availabilityType'])) {
+            $saleInformation->setAvailabilityType($this->availabilityTypes[rand(0, 2)]);
+        }
     }
 
     protected function updateAccessoryKey(AccessoryPart $object): void
