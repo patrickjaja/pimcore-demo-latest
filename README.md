@@ -84,7 +84,7 @@ ToDo:
 
 
 ## AI Generated Demo Data (base https://github.com/pimcore/demo):
-- ``docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:php8.3-latest composer create-project --no-scripts patrickjaja/pimcore-demo-latest my-project`` (create database and user)
+- ``docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:php8.3-latest composer create-project --no-scripts patrickjaja/pimcore-ai-demo my-project`` (create database and user)
 - ``pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore`` (create database and user)
 - ``bin/console pimcore:definition:import:class class_ExampleProductType_export.json`` (create new product type)
 - ``bin/console pimcore:definition:import:objectbrick objectbrick_SaleInformation_export.json``  (attach sales object to new product type)
