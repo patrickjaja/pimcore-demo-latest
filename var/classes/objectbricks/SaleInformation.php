@@ -217,6 +217,11 @@ return \Pimcore\Model\DataObject\Objectbrick\Definition::__set_state(array(
       'classname' => 'CoffeeFilterPaper',
       'fieldname' => 'saleInformation',
     ),
+    1 => 
+    array (
+      'classname' => 'ExampleProductType',
+      'fieldname' => 'saleInformation',
+    ),
   ),
    'activeDispatchingEvents' => 
   array (

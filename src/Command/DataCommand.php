@@ -16,9 +16,13 @@
 namespace App\Command;
 
 use Pimcore\Console\AbstractCommand;
-use Pimcore\Model\DataObject\AccessoryPart;
-use Pimcore\Model\DataObject\Data\GeoCoordinates;
+//use Pimcore\Model\DataObject\AccessoryPart;
+//use Pimcore\Model\DataObject\Data\GeoCoordinates;
+use Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields;
+use Pimcore\Model\DataObject\CoffeeFilterPaper;
 use Pimcore\Model\DataObject\Data\QuantityValue;
+use Pimcore\Model\DataObject\ExampleProductType;
+use Pimcore\Model\DataObject\Localizedfield;
 use Pimcore\Model\DataObject\Objectbrick\Data\SaleInformation;
 use Pimcore\Model\DataObject\QuantityValue\Unit;
 use Symfony\Component\Console\Input\InputInterface;
@@ -59,11 +63,62 @@ class DataCommand extends AbstractCommand
 
     public function execute(InputInterface $input, OutputInterface $output): int
     {
-        $listing = new AccessoryPart\Listing();
-        foreach ($listing as $object) {
-            $this->updateAccessoryERPInformation($object);
-            $object->save();
+//        $listing = new CoffeeFilterPaper\Listing();
+//        $listing->setName()
+//        foreach ($listing as $object) {
+//            $test = $object;
+
+//            $this->updateAccessoryERPInformation($object);
+//            $object->save();
+//        }
+
+        $demoObject = new ExampleProductType();
+        $demoObject->setKey('generateditem-1'.rand(1,100000));
+        $demoObject->setPublished(true);
+        $demoObject->setParentId(744); // Parent Folder "Product Data"
+        $localizedFields = $demoObject->getLocalizedfields();
+        $localizedFields->setItems( [
+            'de' => [
+                'name' => 'DE Patrick Test',
+                'previewImageUrl' => 'https://www.melitta.de/media/560x560/52/f2/96/1695382277/filtertueten-melitta-original-100-braun-6627300-.png?ts=1739276411',
+                'description' => 'DEPatrick Test',
+            ],
+            'en' => [
+                'name' => 'EN Patrick Test',
+                'previewImageUrl' => 'https://www.melitta.de/media/560x560/52/f2/96/1695382277/filtertueten-melitta-original-100-braun-6627300-.png?ts=1739276411',
+                'description' => 'EN Patrick Test',
+            ],
+            'fr' => [
+                'name' => 'FR Patrick Test',
+                'previewImageUrl' => 'https://www.melitta.de/media/560x560/52/f2/96/1695382277/filtertueten-melitta-original-100-braun-6627300-.png?ts=1739276411',
+                'description' => 'FR Patrick Test',
+            ],
+        ]
+        );
+//        $demoObject->setLocalizedfields($localizedFields);
+        $saleInformation = $demoObject->getSaleInformation()->getSaleInformation();
+        if(empty($saleInformation)) {
+            $saleInformation = new SaleInformation($demoObject);
+            $demoObject->getSaleInformation()->setSaleInformation($saleInformation);
         }
+
+//        $saleInformation = new SaleInformation($object);
+//        $sales = $demoObject->getSaleInformation();
+        $saleInformation->setPriceInEUR($this->generatePrice(30, 2000));
+        $saleInformation->setAvailabilityPieces(rand(1, 5));
+        $saleInformation->setAvailabilityType($this->availabilityTypes[rand(0,2)]);
+        $saleInformation->setProductNumber(rand(0,2000));
+        $demoObject->getSaleInformation()->setSaleInformation($saleInformation);
+        $demoObject->save();
+//        $sales->save($demoObject);
+
+//        $sales->save();
+//        $demoObject->setSaleInformation()
+//        $listing = new AccessoryPart\Listing();
+//        foreach ($listing as $object) {
+//            $this->updateAccessoryERPInformation($object);
+//            $object->save();
+//        }
 
 //        $listing = new Car\Listing();
 //        $listing->setCondition('o_id NOT IN (SELECT o_parentId FROM object_CAR)');
