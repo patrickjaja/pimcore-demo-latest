@@ -22,49 +22,53 @@ This demo package showcases a basic implementation of an AI agent-driven e-comme
 
 [Target_Architecture.drawio.png](Target_Architecture.drawio.png)
 
+**Architecture Overview:**
+
+ - [Target_Architecture.drawio.png](Target_Architecture.drawio.png)
+
 **Screenshots:**
 
-[2025-02-15_19-34.png](2025-02-15_19-34.png)
-[2025-02-15_19-35.png](2025-02-15_19-35.png)
-[2025-02-15_19-35_1.png](2025-02-15_19-35_1.png)
-[2025-02-15_19-35_2.png](2025-02-15_19-35_2.png)
+ - [2025-02-15_19-34.png](2025-02-15_19-34.png)
+ - [2025-02-15_19-35.png](2025-02-15_19-35.png)
+ - [2025-02-15_19-35_1.png](2025-02-15_19-35_1.png)
+ - [2025-02-15_19-35_2.png](2025-02-15_19-35_2.png)
 
 **Installation:**
 
 This project is based on the Pimcore demo project (https://github.com/pimcore/demo).  Follow these steps:
 
-1.  **Create Project:**
+1.  **Create Project:** (Base)
     ```bash
     docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:php8.3-latest composer create-project --no-scripts patrickjaja/pimcore-ai-demo my-project
     ```
     *(This command also handles database and user creation within the Docker environment.)*
 
-2.  **Install Assets:**
+2.  **Install Assets:** (Base)
     ```bash
     docker compose exec php vendor/bin/console assets:install --symlink --relative
     ```
 
-3.  **Install Pimcore:**
+3.  **Install Pimcore:** (Base)
     ```bash
     docker compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore
     ```
 
-4.  **Clear Cache:**
+4.  **Clear Cache:** (Base)
     ```bash
     docker compose exec php vendor/bin/console cache:clear
     ```
 
-5.  **Import Product Type Definition:**
+5.  **Import Product Type Definition:** (exemplary)
     ```bash
     docker compose exec php vendor/bin/console pimcore:definition:import:class class_ExampleProductType_export.json
     ```
 
-6.  **Import Object Brick Definition:**
+6.  **Import Object Brick Definition:** (exemplary)
     ```bash
     docker compose exec php vendor/bin/console pimcore:definition:import:objectbrick objectbrick_SaleInformation_export.json --force
     ```
 
-7.  **Import Product Data:**
+7.  **Import Product Data:** (exemplary)
     ```bash
     docker compose exec php vendor/bin/console app:data-command data_ExampleProductType_export.json
     ```
