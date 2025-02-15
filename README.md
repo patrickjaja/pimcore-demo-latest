@@ -32,6 +32,11 @@ What we dont cover:
 - ``docker compose exec php vendor/bin/console app:data-command data_ExampleProductType_export.json`` (import product for new product type)
 - check http://localhost/admin -> data objects -> Product Data for new imported product (use preview do check rendered pdp)
 
+# data structures
+ - PimCore class import, allows to freely define the object data structures [class_ExampleProductType_export.json](class_ExampleProductType_export.json)
+ - Pimcore reused objects (named objectbricks) need to be attached to a class: [objectbrick_SaleInformation_export.json](objectbrick_SaleInformation_export.json)
+ - Produkt data import example based on imported structure: [data_ExampleProductType_export.json](data_ExampleProductType_export.json)
+
 ## personal notes
  ### start xdebug
  - php -d xdebug.mode=debug -d xdebug.client_host=172.23.0.1 -d xdebug.client_port=9003 -d xdebug.idekey="PHPSTORM" -d xdebug.start_with_request=yes bin/console  pimcore:definition:import:class class.json
