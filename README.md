@@ -4,8 +4,8 @@ This demo package showcases a basic implementation of an AI agent-driven e-comme
 
 **Key Features Demonstrated:**
 
-*   Automated domain model creation based on customer domain.
-*   Automated creation of products based on customer domain.
+*   Automated domain model creation.
+*   Automated creation of products.
 
 **Features Not Covered:**
 
