@@ -10,7 +10,7 @@ This demo package showcases a basic implementation of an AI agent-driven e-comme
 **Features Not Covered:**
 
 *   CMS pages
-*   Customer-specific CI/CD
+*   Customer-specific CI
 *   AI-generated product detail pages (varied structures) (Twig templates)
 *   Product listing pages and categories
 *   Shopping cart and checkout process
