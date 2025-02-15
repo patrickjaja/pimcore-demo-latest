@@ -16,24 +16,17 @@
 namespace App\Command;
 
 use Pimcore\Console\AbstractCommand;
-//use Pimcore\Model\DataObject\AccessoryPart;
-//use Pimcore\Model\DataObject\Data\GeoCoordinates;
-use Pimcore\Model\DataObject\ClassDefinition\Data\Localizedfields;
-use Pimcore\Model\DataObject\CoffeeFilterPaper;
 use Pimcore\Model\DataObject\Data\QuantityValue;
-use Pimcore\Model\DataObject\ExampleProductType;
-use Pimcore\Model\DataObject\Localizedfield;
 use Pimcore\Model\DataObject\Objectbrick\Data\SaleInformation;
 use Pimcore\Model\DataObject\QuantityValue\Unit;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
-use Pimcore\Model\DataObject;
 
+//ToDo: Make it behave dynamically based on passed object getter (map properties to object)
+//Why? Because the object types/classes are different, and one command can be easily used to import any kind of dataset
 class DataCommand extends AbstractCommand
 {
-    
     protected array $priceRange = [
         'from' => 57,
         'to' => 900
@@ -52,14 +45,6 @@ class DataCommand extends AbstractCommand
         'new' //not for cars
     ];
 
-    protected array $locations = [
-        [47.8156617813774, 13.049333095550539],
-        [48.197161014477935, 16.335082054138187],
-        [48.143553854307555, 11.556630134582521],
-        [52.526039219655445, 13.367292881011963],
-        [48.78339883980666, 9.180042743682863]
-    ];
-
     public function configure(): void
     {
         $this
@@ -74,7 +59,7 @@ class DataCommand extends AbstractCommand
     public function execute(InputInterface $input, OutputInterface $output): int
     {
         $filePath = $input->getArgument('file');
-        
+
         if (!file_exists($filePath)) {
             $output->writeln(sprintf('<error>File not found: %s</error>', $filePath));
             return 1;
@@ -90,7 +75,7 @@ class DataCommand extends AbstractCommand
 
         // Get target class from JSON
         $targetClass = $data['targetObjectClass'] ?? 'Pimcore\Model\DataObject\ExampleProductType';
-        
+
         try {
             // Create new object instance
             $object = new $targetClass();
@@ -135,7 +120,7 @@ class DataCommand extends AbstractCommand
         if (isset($saleInfo['productNumber'])) {
             $saleInformation->setProductNumber($saleInfo['productNumber']);
         }
-        
+
         // Set default values for required fields if not provided
         if (!isset($saleInfo['availabilityPieces'])) {
             $saleInformation->setAvailabilityPieces(rand(1, 5));
