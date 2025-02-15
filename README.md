@@ -1,53 +1,106 @@
-# Demo and Blue Print Application for Pimcore
+# Demo and Blueprint Application for Pimcore AI-Driven E-commerce
 
-This demo package is intended to be used for an automated AI agent driven ecommernce experience starting with a customer request.
-Its far from beeing complete or final, lot of open ecommerce and pimcore standard functionalities are still undeveloped.
-Since this is an unmaintained fork, dont use this project anywhere.
+This demo package showcases a basic implementation of an AI agent-driven e-commerce experience, starting with a customer request.  It is a work in progress and should not be considered production-ready.  Many standard e-commerce and Pimcore functionalities are still undeveloped.  **This is an unmaintained fork and should not be used in production environments.**
 
-What we cover:
- - automated domain model creation based on customers domain
- - automated creation of products based on customers domain
+**Key Features Demonstrated:**
 
-What we dont cover:
- - CMS pages
- - Customer specific CI/CD
- - ai generated product detail pages (different structures) (twig files)
- - product listing pages and categories
- - [...]
+*   Automated domain model creation based on customer domain.
+*   Automated creation of products based on customer domain.
 
-![Target_Architecture.drawio.png](Target_Architecture.drawio.png)
-![2025-02-15_19-34.png](2025-02-15_19-34.png)
-![2025-02-15_19-35.png](2025-02-15_19-35.png)
-![2025-02-15_19-35_1.png](2025-02-15_19-35_1.png)
-![2025-02-15_19-35_2.png](2025-02-15_19-35_2.png)
+**Features Not Covered:**
 
+*   CMS pages
+*   Customer-specific CI/CD
+*   AI-generated product detail pages (varied structures) (Twig templates)
+*   Product listing pages and categories
+*   Shopping cart and checkout process
+*   Customer accounts and management
+*   Order management
+*   ...and many other standard e-commerce features
 
-# Installation & internal documentation (base project https://github.com/pimcore/demo):
-- ``docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:php8.3-latest composer create-project --no-scripts patrickjaja/pimcore-ai-demo my-project`` (create database and user)
-- ``docker compose exec php vendor/bin/console assets:install --symlink --relative``
-- ``docker compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore`` (create database and user)
-- ``docker compose exec php vendor/bin/console cache:clear``
-- ``docker compose exec php vendor/bin/console pimcore:definition:import:class class_ExampleProductType_export.json`` (create new product type)
-- ``docker compose exec php vendor/bin/console pimcore:definition:import:objectbrick objectbrick_SaleInformation_export.json --force``  (attach sales object to new product type)
-- ``docker compose exec php vendor/bin/console app:data-command data_ExampleProductType_export.json`` (import product for new product type)
-- check http://localhost/admin -> data objects -> Product Data for new imported product (use preview do check rendered pdp)
+**Architecture Overview:**
 
-# data structures
- - PimCore class import, allows to freely define the object data structures [class_ExampleProductType_export.json](class_ExampleProductType_export.json)
- - Pimcore reused objects (named objectbricks) need to be attached to a class: [objectbrick_SaleInformation_export.json](objectbrick_SaleInformation_export.json)
- - Produkt data import example based on imported structure: [data_ExampleProductType_export.json](data_ExampleProductType_export.json)
+[Target_Architecture.drawio.png](Target_Architecture.drawio.png)
 
-## personal notes
- ### start xdebug
- - php -d xdebug.mode=debug -d xdebug.client_host=172.23.0.1 -d xdebug.client_port=9003 -d xdebug.idekey="PHPSTORM" -d xdebug.start_with_request=yes bin/console  pimcore:definition:import:class class.json
- - docker-compose down --volumes
- - docker compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore --skip-database-data --skip-database-data-dump
- - example preview url http://localhost/en/shop/Products/coffee-filters/EN-MelittaR-Original--100--braun--40-St~p1193?pimcore_object_preview=1193&dc=1739303623
- - http://localhost/en/shop/Products/EN-MelittaR-Original--100--braun--40-St~p1193
+**Screenshots:**
 
-PimCore Project Stack Notes
- - https://docs.pimcore.com/platform/Pimcore/Deployment/Deployment_Tools/#potentially-useful-commands
- - https://docs.pimcore.com/platform/Workflow_Automation/Work_with_WAI
+[2025-02-15_19-34.png](2025-02-15_19-34.png)
+[2025-02-15_19-35.png](2025-02-15_19-35.png)
+[2025-02-15_19-35_1.png](2025-02-15_19-35_1.png)
+[2025-02-15_19-35_2.png](2025-02-15_19-35_2.png)
 
+**Installation:**
 
+This project is based on the Pimcore demo project (https://github.com/pimcore/demo).  Follow these steps:
 
+1.  **Create Project:**
+    ```bash
+    docker run -u `id -u`:`id -g` --rm -v `pwd`:/var/www/html pimcore/pimcore:php8.3-latest composer create-project --no-scripts patrickjaja/pimcore-ai-demo my-project
+    ```
+    *(This command also handles database and user creation within the Docker environment.)*
+
+2.  **Install Assets:**
+    ```bash
+    docker compose exec php vendor/bin/console assets:install --symlink --relative
+    ```
+
+3.  **Install Pimcore:**
+    ```bash
+    docker compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore
+    ```
+
+4.  **Clear Cache:**
+    ```bash
+    docker compose exec php vendor/bin/console cache:clear
+    ```
+
+5.  **Import Product Type Definition:**
+    ```bash
+    docker compose exec php vendor/bin/console pimcore:definition:import:class class_ExampleProductType_export.json
+    ```
+
+6.  **Import Object Brick Definition:**
+    ```bash
+    docker compose exec php vendor/bin/console pimcore:definition:import:objectbrick objectbrick_SaleInformation_export.json --force
+    ```
+
+7.  **Import Product Data:**
+    ```bash
+    docker compose exec php vendor/bin/console app:data-command data_ExampleProductType_export.json
+    ```
+
+8.  **Verify Installation:** Access the Pimcore admin interface at http://localhost/admin. Navigate to "Data Objects" -> "Product Data" to view the imported product. Use the preview functionality to check the rendered product detail page.
+
+**Data Structures:**
+
+*   **Pimcore Class Import:**  Defines the object data structures. ([class_ExampleProductType_export.json](class_ExampleProductType_export.json))
+*   **Pimcore Object Bricks:** Reusable objects attached to a class. ([objectbrick_SaleInformation_export.json](objectbrick_SaleInformation_export.json))
+*   **Product Data Example:** Product data based on the imported structure. ([data_ExampleProductType_export.json](data_ExampleProductType_export.json))
+
+**Personal Notes (For Development):**
+
+*   **Start Xdebug:**
+    ```bash
+    php -d xdebug.mode=debug -d xdebug.client_host=172.23.0.1 -d xdebug.client_port=9003 -d xdebug.idekey="PHPSTORM" -d xdebug.start_with_request=yes bin/console pimcore:definition:import:class class.json
+    ```
+*   **Docker Compose Down (with Volumes):**
+    ```bash
+    docker-compose down --volumes
+    ```
+*   **Pimcore Install (Skipping Data):**
+    ```bash
+    docker compose exec php vendor/bin/pimcore-install --mysql-host-socket=db --mysql-username=pimcore --mysql-password=pimcore --mysql-database=pimcore --skip-database-data --skip-database-data-dump
+    ```
+*   **Example Preview URL:**
+    ```
+    http://localhost/en/shop/Products/coffee-filters/EN-MelittaR-Original--100--braun--40-St~p1193?pimcore_object_preview=1193&dc=1739303623
+    ```
+*   **Example Product URL:**
+    ```
+    http://localhost/en/shop/Products/EN-MelittaR-Original--100--braun--40-St~p1193
+    ```
+
+**Pimcore Project Stack Notes:**
+
+*   [Pimcore Deployment Tools](https://docs.pimcore.com/platform/Pimcore/Deployment/Deployment_Tools/#potentially-useful-commands)
+*   [Pimcore Workflow Automation](https://docs.pimcore.com/platform/Workflow_Automation/Work_with_WAI)
