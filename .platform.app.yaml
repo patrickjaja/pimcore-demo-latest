@@ -44,3 +44,13 @@ web:
             allow: true
             scripts: true
             passthru: "/index.php"
+
+hooks:
+    build: |
+        composer install --no-dev --optimize-autoloader
+    deploy: |
+        mkdir -p var/cache
+        chmod -R 755 var/cache
+        php bin/console pimcore:deployment:classes-rebuild --create-classes
+        php bin/console doctrine:migrations:migrate --no-interaction
+        php bin/console cache:clear
