@@ -22,6 +22,12 @@ mounts:
     'web/uploads':
         source: local
         source_path: uploads
+    'var/cache':
+        source: local
+        source_path: var/cache
+    'var/log':
+        source: local
+        source_path: var/log
 
 # The size of the persistent disk of the application (in MB).
 disk: 256
@@ -34,6 +40,9 @@ disk: 256
 relationships:
     redis: 'redis:redis'
     mariadb: 'mariadb:mysql'
+
+build:
+    flavor: composer
 
 # Define the web app
 web:
