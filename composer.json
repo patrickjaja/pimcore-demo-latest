@@ -61,10 +61,6 @@
     "symfony-assets-install": "relative"
   },
   "repositories": {
-    "pimcore_enterprise": {
-      "type": "composer",
-      "url": "https://github.com/patrickjaja/pimcore-demo-latest.git"
-    },
     "dev": {
       "type": "path",
       "url": "./dev/*/*",
