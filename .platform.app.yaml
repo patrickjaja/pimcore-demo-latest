@@ -34,3 +34,13 @@ disk: 256
 relationships:
     redis: 'redis:redis'
     mariadb: 'mariadb:mysql'
+
+# Define the web app
+web:
+    locations:
+        "/":
+            root: "public"
+            index: ["index.php"]
+            allow: true
+            scripts: true
+            passthru: "/index.php"
