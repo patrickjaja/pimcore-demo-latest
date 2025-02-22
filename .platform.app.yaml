@@ -9,6 +9,14 @@ name: app
 # to find the supported versions for the 'php' type.
 type: 'php:8.3'
 
+variables:
+    env:
+        DATABASE_HOST: ${database.credentials.host}
+        DATABASE_PORT: ${database.credentials.port}
+        DATABASE_USER: ${database.credentials.user}
+        DATABASE_PASSWORD: ${database.credentials.password}
+        DATABASE_NAME: ${database.credentials.dbname}
+
 runtime:
     extensions:
         - sodium
