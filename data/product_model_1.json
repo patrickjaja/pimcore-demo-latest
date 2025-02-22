@@ -1,0 +1,254 @@
+{
+    "product_data_model": [
+        {
+            "description": "The name or title of the product",
+            "enum": null,
+            "name": "title",
+            "required": true,
+            "type": "string"
+        },
+        {
+            "description": "The manufacturer or brand of the product",
+            "enum": null,
+            "name": "manufacturer",
+            "required": true,
+            "type": "string"
+        },
+        {
+            "description": "A detailed overview of the product features or characteristics",
+            "enum": null,
+            "name": "description",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Base price of the product with price unit (e.g., per kilogram)",
+            "enum": null,
+            "name": "base_price",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "The selling price of the product including any additional info such as quantity discount",
+            "enum": null,
+            "name": "price",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Supplementary pricing information, including taxes or shipping",
+            "enum": null,
+            "name": "price_info",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Reference price unit for cost estimation (e.g., per kilogram)",
+            "enum": null,
+            "name": "price_unit_reference",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Estimated delivery time in days or specified duration",
+            "enum": null,
+            "name": "delivery_time",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Growing altitude for coffee or similar products",
+            "enum": null,
+            "name": "altitude",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "The height at which the product (e.g., coffee) is grown",
+            "enum": null,
+            "name": "height",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "List of producers involved in creating the product",
+            "enum": null,
+            "name": "producers",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Process method used for product preparation, especially in coffee production",
+            "enum": [
+                "Pulped Natural",
+                "Washed",
+                "Natural",
+                "Washed, E.A."
+            ],
+            "name": "process",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Country or region of origin of the product",
+            "enum": null,
+            "name": "origin",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Variety of product such as plant species or types",
+            "enum": null,
+            "name": "variety",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Type of varietal for products like coffee",
+            "enum": null,
+            "name": "varietal",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Flavor characteristics or notes that describe the taste of the product",
+            "enum": null,
+            "name": "taste_notes",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "An extended description encompassing detailed product characteristics and background",
+            "enum": null,
+            "name": "detailed_description",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Additional information about the product's producer or manufacturer",
+            "enum": null,
+            "name": "producer_info",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Introductory description providing a brief overview of the product",
+            "enum": null,
+            "name": "intro_description",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Insightful information regarding the producer, providing background and credibility",
+            "enum": null,
+            "name": "meet_the_producer",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Alternative description providing background and credibility about the producer",
+            "enum": null,
+            "name": "meet_the_producer_text",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Introductory text to the product, often used for marketing purposes",
+            "enum": null,
+            "name": "intro",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Details about what is included in the price",
+            "enum": null,
+            "name": "price_includes",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Details on tax and shipping related to the product price",
+            "enum": null,
+            "name": "tax_and_shipping",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "General properties of the product in a descriptive format",
+            "enum": null,
+            "name": "properties",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "(German) Elevation where the product like coffee is cultivated",
+            "enum": null,
+            "name": "Höhe",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "(German) List of producers who created the product",
+            "enum": null,
+            "name": "Produzent:innen",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "(German) Processing method, especially for coffee",
+            "enum": null,
+            "name": "Proces",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "(German) Origin of the product by country or region",
+            "enum": null,
+            "name": "Ursprung",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "(German) Variety of plant or product",
+            "enum": null,
+            "name": "Varietät",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Flavor profile or taste notes of the product",
+            "enum": null,
+            "name": "taste",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Detailed description of flavor profile or taste notes",
+            "enum": null,
+            "name": "taste_profile",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Price per specific unit of measure such as weight",
+            "enum": null,
+            "name": "price_unit",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "Information about the producer's background or story",
+            "enum": null,
+            "name": "Meet The Producer",
+            "required": false,
+            "type": "string"
+        },
+        {
+            "description": "List of taste notes attributed to the product",
+            "enum": null,
+            "name": "Tastes",
+            "required": false,
+            "type": "string"
+        }
+    ]
+}
