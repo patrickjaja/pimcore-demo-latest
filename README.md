@@ -108,3 +108,8 @@ This project is based on the Pimcore demo project (https://github.com/pimcore/de
 
 *   [Pimcore Deployment Tools](https://docs.pimcore.com/platform/Pimcore/Deployment/Deployment_Tools/#potentially-useful-commands)
 *   [Pimcore Workflow Automation](https://docs.pimcore.com/platform/Workflow_Automation/Work_with_WAI)
+
+ # boot env pimcore cloud
+ - docker compose exec -u 0 -it php bash
+ - php pimcore.phar auth:api-token-login
+ - 
