@@ -36,9 +36,11 @@ class DataCommand extends AbstractCommand
         'couple-weeks',
         'couple-days',
         'instant'
+
     ];
 
     protected array $conditionTypes = [
+
         'broken',
         'reworked',
         'used',
