@@ -62,7 +62,7 @@ This project is based on the Pimcore demo project (https://github.com/pimcore/de
     ```bash
     # add your OPEN_ROUTER api key in .env file
     docker compose exec php vendor/bin/console app:auto-map-json -i data/product_model_1.json -o cache/generated/class_StaticImportedProductType1_export.json -p data/prompt/model_prompt.md
-    bin/console pimcore:definition:import:class cache/generated/class_StaticImportedProductType1_export.json
+    docker compose exec php vendor/bin/console pimcore:definition:import:class cache/generated/class_StaticImportedProductType1_export.json
     ```
 
 6.  **Convert AI generated data to PimCore product schema specific data & import it:** (exemplary)
