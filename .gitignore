@@ -51,3 +51,7 @@ nbproject
 .temp
 
 auth.json
+
+cache/generated/*
+!cache/generated/.gitkeep
+.env

@@ -65,7 +65,8 @@ services:
         resource: '../src/Command'
         tags: ['console.command']
 
-
+    Symfony\Contracts\HttpClient\HttpClientInterface:
+        alias: 'http_client'
 
     # ---------------------------------------------------------
     # Forms

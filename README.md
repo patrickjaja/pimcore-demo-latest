@@ -112,4 +112,11 @@ This project is based on the Pimcore demo project (https://github.com/pimcore/de
  # boot env pimcore cloud
  - docker compose exec -u 0 -it php bash
  - php pimcore.phar auth:api-token-login
- - 
+
+ # auto transform input schema to output schema
+ - bin/console app:auto-map-json -i data/product_model_1.json -o cache/generated/class_StaticImportedProductType1_export.json -p data/prompt/model_prompt.md
+ - bin/console pimcore:definition:import:class cache/generated/class_StaticImportedProductType1_export.json
+
+# import data
+ - bin/console app:auto-map-data-json -i data/product_data_1.json -o cache/generated/data_StaticImportedProductType1_export.json -s cache/generated/class_StaticImportedProductType1_export.json -p data/prompt/data_prompt.md
+ - bin/console app:import-data-command -m cache/generated/class_StaticImportedProductType1_export.json -d cache/generated/data_StaticImportedProductType1_export.json

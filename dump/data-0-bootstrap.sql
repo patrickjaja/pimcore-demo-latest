@@ -277,7 +277,7 @@ CREATE TABLE `messenger_messages` (
   `delivered_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_75EA56E016BA31DB` (`delivered_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=11344 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11624 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 
@@ -309,38 +309,6 @@ CREATE TABLE `object_brick_query_PaymentProviderPayPalSmartButton_EF_OSO` (
 
 
 
-DROP TABLE IF EXISTS `object_brick_query_SaleInformation_CoffeeFilterPaper`;
-CREATE TABLE `object_brick_query_SaleInformation_CoffeeFilterPaper` (
-  `id` int(11) unsigned NOT NULL DEFAULT 0,
-  `fieldname` varchar(190) NOT NULL DEFAULT '',
-  `availabilityPieces` double DEFAULT NULL,
-  `availabilityType` varchar(190) DEFAULT NULL,
-  `priceInEUR` decimal(10,2) DEFAULT NULL,
-  `productNumber` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`fieldname`),
-  KEY `id` (`id`),
-  KEY `fieldname` (`fieldname`),
-  CONSTRAINT `fk_object_brick_query_SaleInformation_CoffeeFilterPaper__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_brick_query_SaleInformation_Machine`;
-CREATE TABLE `object_brick_query_SaleInformation_Machine` (
-  `id` int(11) unsigned NOT NULL DEFAULT 0,
-  `fieldname` varchar(190) NOT NULL DEFAULT '',
-  `availabilityPieces` double DEFAULT NULL,
-  `availabilityType` varchar(190) DEFAULT NULL,
-  `priceInEUR` decimal(10,2) DEFAULT NULL,
-  `productNumber` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`fieldname`),
-  KEY `id` (`id`),
-  KEY `fieldname` (`fieldname`),
-  CONSTRAINT `fk_object_brick_query_SaleInformation_Machine__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
 DROP TABLE IF EXISTS `object_brick_store_PaymentProviderPayPalSmartButton_EF_OSO`;
 CREATE TABLE `object_brick_store_PaymentProviderPayPalSmartButton_EF_OSO` (
   `id` int(11) unsigned NOT NULL DEFAULT 0,
@@ -355,38 +323,6 @@ CREATE TABLE `object_brick_store_PaymentProviderPayPalSmartButton_EF_OSO` (
   KEY `id` (`id`),
   KEY `fieldname` (`fieldname`),
   CONSTRAINT `fk_object_brick_store_PaymentProviderPayPalSmartButton__d52c4917` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_brick_store_SaleInformation_CoffeeFilterPaper`;
-CREATE TABLE `object_brick_store_SaleInformation_CoffeeFilterPaper` (
-  `id` int(11) unsigned NOT NULL DEFAULT 0,
-  `fieldname` varchar(190) NOT NULL DEFAULT '',
-  `availabilityPieces` double DEFAULT NULL,
-  `availabilityType` varchar(190) DEFAULT NULL,
-  `priceInEUR` decimal(10,2) DEFAULT NULL,
-  `productNumber` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`fieldname`),
-  KEY `id` (`id`),
-  KEY `fieldname` (`fieldname`),
-  CONSTRAINT `fk_object_brick_store_SaleInformation_CoffeeFilterPaper__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_brick_store_SaleInformation_Machine`;
-CREATE TABLE `object_brick_store_SaleInformation_Machine` (
-  `id` int(11) unsigned NOT NULL DEFAULT 0,
-  `fieldname` varchar(190) NOT NULL DEFAULT '',
-  `availabilityPieces` double DEFAULT NULL,
-  `availabilityType` varchar(190) DEFAULT NULL,
-  `priceInEUR` decimal(10,2) DEFAULT NULL,
-  `productNumber` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`id`,`fieldname`),
-  KEY `id` (`id`),
-  KEY `fieldname` (`fieldname`),
-  CONSTRAINT `fk_object_brick_store_SaleInformation_Machine__id` FOREIGN KEY (`id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -1013,34 +949,6 @@ CREATE TABLE `object_collection_VoucherTokenTypeSingle_EF_OSVS` (
 
 
 
-DROP TABLE IF EXISTS `object_localized_data_CA`;
-CREATE TABLE `object_localized_data_CA` (
-  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `language` varchar(10) NOT NULL DEFAULT '',
-  `name` varchar(190) DEFAULT NULL,
-  `productNamePart` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`ooo_id`,`language`),
-  KEY `language` (`language`),
-  KEY `IDX_20BC184BA94707C7` (`ooo_id`),
-  CONSTRAINT `fk_object_localized_data_CA__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_localized_data_CoffeeFilterPaper`;
-CREATE TABLE `object_localized_data_CoffeeFilterPaper` (
-  `ooo_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `language` varchar(10) NOT NULL DEFAULT '',
-  `name` varchar(100) DEFAULT NULL,
-  `previewImageUrl` varchar(190) DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`ooo_id`,`language`),
-  KEY `language` (`language`),
-  CONSTRAINT `fk_object_localized_data_CoffeeFilterPaper__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
 DROP TABLE IF EXISTS `object_localized_data_EV`;
 CREATE TABLE `object_localized_data_EV` (
   `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
@@ -1055,20 +963,6 @@ CREATE TABLE `object_localized_data_EV` (
 
 
 
-DROP TABLE IF EXISTS `object_localized_data_Machine`;
-CREATE TABLE `object_localized_data_Machine` (
-  `ooo_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `language` varchar(10) NOT NULL DEFAULT '',
-  `name` varchar(100) DEFAULT NULL,
-  `previewImageUrl` varchar(190) DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`ooo_id`,`language`),
-  KEY `language` (`language`),
-  CONSTRAINT `fk_object_localized_data_Machine__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
 DROP TABLE IF EXISTS `object_localized_data_NE`;
 CREATE TABLE `object_localized_data_NE` (
   `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
@@ -1079,90 +973,6 @@ CREATE TABLE `object_localized_data_NE` (
   KEY `language` (`language`),
   KEY `IDX_927FA21FA94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_data_NE__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_localized_query_CA_de`;
-CREATE TABLE `object_localized_query_CA_de` (
-  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `language` varchar(10) NOT NULL DEFAULT '',
-  `name` varchar(190) DEFAULT NULL,
-  `productNamePart` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`ooo_id`,`language`),
-  KEY `language` (`language`),
-  KEY `IDX_6EA9EAF2A94707C7` (`ooo_id`),
-  CONSTRAINT `fk_object_localized_query_CA_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_localized_query_CA_en`;
-CREATE TABLE `object_localized_query_CA_en` (
-  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `language` varchar(10) NOT NULL DEFAULT '',
-  `name` varchar(190) DEFAULT NULL,
-  `productNamePart` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`ooo_id`,`language`),
-  KEY `language` (`language`),
-  KEY `IDX_E060023BA94707C7` (`ooo_id`),
-  CONSTRAINT `fk_object_localized_query_CA_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_localized_query_CA_fr`;
-CREATE TABLE `object_localized_query_CA_fr` (
-  `ooo_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `language` varchar(10) NOT NULL DEFAULT '',
-  `name` varchar(190) DEFAULT NULL,
-  `productNamePart` varchar(190) DEFAULT NULL,
-  PRIMARY KEY (`ooo_id`,`language`),
-  KEY `language` (`language`),
-  KEY `IDX_DF4C0DB7A94707C7` (`ooo_id`),
-  CONSTRAINT `fk_object_localized_query_CA_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_localized_query_CoffeeFilterPaper_de`;
-CREATE TABLE `object_localized_query_CoffeeFilterPaper_de` (
-  `ooo_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `language` varchar(10) NOT NULL DEFAULT '',
-  `name` varchar(100) DEFAULT NULL,
-  `previewImageUrl` varchar(190) DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`ooo_id`,`language`),
-  KEY `language` (`language`),
-  CONSTRAINT `fk_object_localized_query_CoffeeFilterPaper_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_localized_query_CoffeeFilterPaper_en`;
-CREATE TABLE `object_localized_query_CoffeeFilterPaper_en` (
-  `ooo_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `language` varchar(10) NOT NULL DEFAULT '',
-  `name` varchar(100) DEFAULT NULL,
-  `previewImageUrl` varchar(190) DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`ooo_id`,`language`),
-  KEY `language` (`language`),
-  CONSTRAINT `fk_object_localized_query_CoffeeFilterPaper_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_localized_query_CoffeeFilterPaper_fr`;
-CREATE TABLE `object_localized_query_CoffeeFilterPaper_fr` (
-  `ooo_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `language` varchar(10) NOT NULL DEFAULT '',
-  `name` varchar(100) DEFAULT NULL,
-  `previewImageUrl` varchar(190) DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`ooo_id`,`language`),
-  KEY `language` (`language`),
-  CONSTRAINT `fk_object_localized_query_CoffeeFilterPaper_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -1205,48 +1015,6 @@ CREATE TABLE `object_localized_query_EV_fr` (
   KEY `language` (`language`),
   KEY `IDX_9DC29731A94707C7` (`ooo_id`),
   CONSTRAINT `fk_object_localized_query_EV_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_localized_query_Machine_de`;
-CREATE TABLE `object_localized_query_Machine_de` (
-  `ooo_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `language` varchar(10) NOT NULL DEFAULT '',
-  `name` varchar(100) DEFAULT NULL,
-  `previewImageUrl` varchar(190) DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`ooo_id`,`language`),
-  KEY `language` (`language`),
-  CONSTRAINT `fk_object_localized_query_Machine_de__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_localized_query_Machine_en`;
-CREATE TABLE `object_localized_query_Machine_en` (
-  `ooo_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `language` varchar(10) NOT NULL DEFAULT '',
-  `name` varchar(100) DEFAULT NULL,
-  `previewImageUrl` varchar(190) DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`ooo_id`,`language`),
-  KEY `language` (`language`),
-  CONSTRAINT `fk_object_localized_query_Machine_en__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_localized_query_Machine_fr`;
-CREATE TABLE `object_localized_query_Machine_fr` (
-  `ooo_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `language` varchar(10) NOT NULL DEFAULT '',
-  `name` varchar(100) DEFAULT NULL,
-  `previewImageUrl` varchar(190) DEFAULT NULL,
-  `description` longtext DEFAULT NULL,
-  PRIMARY KEY (`ooo_id`,`language`),
-  KEY `language` (`language`),
-  CONSTRAINT `fk_object_localized_query_Machine_fr__ooo_id` FOREIGN KEY (`ooo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -1389,19 +1157,6 @@ CREATE TABLE `object_query_5` (
 
 
 
-DROP TABLE IF EXISTS `object_query_CA`;
-CREATE TABLE `object_query_CA` (
-  `oo_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `oo_classId` varchar(50) DEFAULT 'CA',
-  `oo_className` varchar(255) DEFAULT 'Category',
-  `filterDefinition__id` int(11) DEFAULT NULL,
-  `filterDefinition__type` enum('document','asset','object') DEFAULT NULL,
-  PRIMARY KEY (`oo_id`),
-  CONSTRAINT `fk_object_query_CA__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
 DROP TABLE IF EXISTS `object_query_CU`;
 CREATE TABLE `object_query_CU` (
   `oo_id` int(10) unsigned NOT NULL DEFAULT 0,
@@ -1433,18 +1188,6 @@ CREATE TABLE `object_query_CU` (
   PRIMARY KEY (`oo_id`),
   KEY `p_index_idEncoded` (`idEncoded`),
   CONSTRAINT `fk_object_query_CU__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_query_CoffeeFilterPaper`;
-CREATE TABLE `object_query_CoffeeFilterPaper` (
-  `oo_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `oo_classId` varchar(50) DEFAULT 'CoffeeFilterPaper',
-  `oo_className` varchar(255) DEFAULT 'CoffeeFilterPaper',
-  `categories` text DEFAULT NULL,
-  PRIMARY KEY (`oo_id`),
-  CONSTRAINT `fk_object_query_CoffeeFilterPaper__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -1667,18 +1410,6 @@ CREATE TABLE `object_query_EV` (
 
 
 
-DROP TABLE IF EXISTS `object_query_Machine`;
-CREATE TABLE `object_query_Machine` (
-  `oo_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `oo_classId` varchar(50) DEFAULT 'Machine',
-  `oo_className` varchar(255) DEFAULT 'Machine',
-  `categories` text DEFAULT NULL,
-  PRIMARY KEY (`oo_id`),
-  CONSTRAINT `fk_object_query_Machine__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
 DROP TABLE IF EXISTS `object_query_NE`;
 CREATE TABLE `object_query_NE` (
   `oo_id` int(10) unsigned NOT NULL DEFAULT 0,
@@ -1793,31 +1524,6 @@ CREATE TABLE `object_relations_5` (
 
 
 
-DROP TABLE IF EXISTS `object_relations_CA`;
-CREATE TABLE `object_relations_CA` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `src_id` int(10) unsigned NOT NULL DEFAULT 0,
-  `dest_id` int(11) NOT NULL DEFAULT 0,
-  `type` enum('object','asset','document') NOT NULL,
-  `fieldname` varchar(70) NOT NULL DEFAULT '0',
-  `index` int(11) unsigned NOT NULL DEFAULT 0,
-  `ownertype` enum('object','fieldcollection','localizedfield','objectbrick') NOT NULL DEFAULT 'object',
-  `ownername` varchar(70) NOT NULL DEFAULT '',
-  `position` varchar(70) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `index` (`index`),
-  KEY `dest_id` (`dest_id`),
-  KEY `fieldname` (`fieldname`),
-  KEY `position` (`position`),
-  KEY `ownertype` (`ownertype`),
-  KEY `type` (`type`),
-  KEY `ownername` (`ownername`),
-  KEY `IDX_D8EFF2C0FF529AC` (`src_id`),
-  CONSTRAINT `fk_object_relations_CA__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
 DROP TABLE IF EXISTS `object_relations_CU`;
 CREATE TABLE `object_relations_CU` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -1840,26 +1546,6 @@ CREATE TABLE `object_relations_CU` (
   KEY `IDX_C23526BDFF529AC` (`src_id`),
   CONSTRAINT `fk_object_relations_CU__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_relations_CoffeeFilterPaper`;
-CREATE TABLE `object_relations_CoffeeFilterPaper` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `src_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `dest_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `type` enum('object','asset','document') NOT NULL,
-  `fieldname` varchar(70) NOT NULL DEFAULT '0',
-  `index` int(11) unsigned NOT NULL DEFAULT 0,
-  `ownertype` enum('object','fieldcollection','localizedfield','objectbrick') NOT NULL DEFAULT 'object',
-  `ownername` varchar(70) NOT NULL DEFAULT '',
-  `position` varchar(70) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `forward_lookup` (`src_id`,`ownertype`,`ownername`,`position`),
-  KEY `reverse_lookup` (`dest_id`,`type`),
-  KEY `fieldname` (`fieldname`),
-  CONSTRAINT `fk_object_relations_CoffeeFilterPaper__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 
@@ -2113,26 +1799,6 @@ CREATE TABLE `object_relations_EV` (
 
 
 
-DROP TABLE IF EXISTS `object_relations_Machine`;
-CREATE TABLE `object_relations_Machine` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `src_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `dest_id` int(11) unsigned NOT NULL DEFAULT 0,
-  `type` enum('object','asset','document') NOT NULL,
-  `fieldname` varchar(70) NOT NULL DEFAULT '0',
-  `index` int(11) unsigned NOT NULL DEFAULT 0,
-  `ownertype` enum('object','fieldcollection','localizedfield','objectbrick') NOT NULL DEFAULT 'object',
-  `ownername` varchar(70) NOT NULL DEFAULT '',
-  `position` varchar(70) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `forward_lookup` (`src_id`,`ownertype`,`ownername`,`position`),
-  KEY `reverse_lookup` (`dest_id`,`type`),
-  KEY `fieldname` (`fieldname`),
-  CONSTRAINT `fk_object_relations_Machine__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
 DROP TABLE IF EXISTS `object_relations_NE`;
 CREATE TABLE `object_relations_NE` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -2218,15 +1884,6 @@ CREATE TABLE `object_store_5` (
 
 
 
-DROP TABLE IF EXISTS `object_store_CA`;
-CREATE TABLE `object_store_CA` (
-  `oo_id` int(10) unsigned NOT NULL DEFAULT 0,
-  PRIMARY KEY (`oo_id`),
-  CONSTRAINT `fk_object_store_CA__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
 DROP TABLE IF EXISTS `object_store_CU`;
 CREATE TABLE `object_store_CU` (
   `oo_id` int(10) unsigned NOT NULL DEFAULT 0,
@@ -2255,15 +1912,6 @@ CREATE TABLE `object_store_CU` (
   `newsletterConfirmToken` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_CU__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_store_CoffeeFilterPaper`;
-CREATE TABLE `object_store_CoffeeFilterPaper` (
-  `oo_id` int(11) unsigned NOT NULL DEFAULT 0,
-  PRIMARY KEY (`oo_id`),
-  CONSTRAINT `fk_object_store_CoffeeFilterPaper__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
@@ -2441,15 +2089,6 @@ CREATE TABLE `object_store_EV` (
   `status` varchar(190) DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_EV__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-
-DROP TABLE IF EXISTS `object_store_Machine`;
-CREATE TABLE `object_store_Machine` (
-  `oo_id` int(11) unsigned NOT NULL DEFAULT 0,
-  PRIMARY KEY (`oo_id`),
-  CONSTRAINT `fk_object_store_Machine__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
