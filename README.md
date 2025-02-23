@@ -58,22 +58,20 @@ This project is based on the Pimcore demo project (https://github.com/pimcore/de
     docker compose exec php vendor/bin/console cache:clear
     ```
 
-5.  **Import Product Type Definition:** (exemplary)
+5.  **Convert AI generated Schema to PimCore schema Definition & import it:** (exemplary)
     ```bash
-    docker compose exec php vendor/bin/console pimcore:definition:import:class class_ExampleProductType_export.json
+    # add your OPEN_ROUTER api key in .env file
+    docker compose exec php vendor/bin/console app:auto-map-json -i data/product_model_1.json -o cache/generated/class_StaticImportedProductType1_export.json -p data/prompt/model_prompt.md
+    bin/console pimcore:definition:import:class cache/generated/class_StaticImportedProductType1_export.json
     ```
 
-6.  **Import Object Brick Definition:** (exemplary)
+6.  **Convert AI generated data to PimCore product schema specific data & import it:** (exemplary)
     ```bash
-    docker compose exec php vendor/bin/console pimcore:definition:import:objectbrick objectbrick_SaleInformation_export.json --force
+    docker compose exec php vendor/bin/console app:auto-map-data-json -i data/product_data_1.json -o cache/generated/data_StaticImportedProductType1_export.json -s cache/generated/class_StaticImportedProductType1_export.json -p data/prompt/data_prompt.md
+    docker compose exec php vendor/bin/console app:import-data-command -m cache/generated/class_StaticImportedProductType1_export.json -d cache/generated/data_StaticImportedProductType1_export.json
     ```
 
-7.  **Import Product Data:** (exemplary)
-    ```bash
-    docker compose exec php vendor/bin/console app:data-command data_ExampleProductType_export.json
-    ```
-
-8.  **Verify Installation:** Access the Pimcore admin interface at http://localhost/admin. Navigate to "Data Objects" -> "Product Data" to view the imported product. Use the preview functionality to check the rendered product detail page.
+7.  **Verify Installation:** Access the Pimcore admin interface at http://localhost/admin. Navigate to "Data Objects" -> "Product Data" to view the imported product.
 
 **Data Structures:**
 
