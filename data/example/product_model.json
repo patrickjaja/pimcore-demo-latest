@@ -1,0 +1,289 @@
+{
+    "product_data_model": [
+      {
+        "description": "The unique identifier for a product, usually its name or label.",
+        "enum": [],
+        "name": "title",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "The name of the company or entity that produces the product.",
+        "enum": [],
+        "name": "manufacturer",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "A detailed description of the product, which provides potential buyers with insights into the product's features, use, and origin.",
+        "enum": [],
+        "name": "description",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "A brief introduction or promotional text about the product.",
+        "enum": [],
+        "name": "intro",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Information about the price per unit, including any applicable tax and delivery cost information.",
+        "enum": [],
+        "name": "price_unit",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Background story of the producer, detailing history, practices, and other relevant details.",
+        "enum": [],
+        "name": "producer_story",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "The geographic elevation where the coffee is grown, typically stated in meters above sea level.",
+        "enum": [],
+        "name": "properties_height",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "The name of the person or organization that produces the coffee.",
+        "enum": [],
+        "name": "properties_producer",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "The method used to process the coffee beans, such as Natural or Washed.",
+        "enum": [
+          "Natural",
+          "Washed",
+          "Pulped Natural",
+          "Anaerobic Fermentation"
+        ],
+        "name": "properties_process",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "The geographic origin of the coffee, including country and possibly region.",
+        "enum": [],
+        "name": "properties_origin",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "The coffee variety or cultivar, describing the specific type of coffee plant used.",
+        "enum": [],
+        "name": "properties_variety",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Attributes describing the flavor profile of the coffee as experienced during tasting.",
+        "enum": [],
+        "name": "taste_profile",
+        "required": false,
+        "type": "array"
+      },
+      {
+        "description": "Standard unit price including reference to standard weight and additional cost details.",
+        "enum": [],
+        "name": "price_unit_reference",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Details on the inclusion of taxes in the product pricing.",
+        "enum": [],
+        "name": "price_includes_tax",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Expected delivery time for the product from order placement to delivery.",
+        "enum": [],
+        "name": "delivery_time",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "The growing altitude of the coffee beans.",
+        "enum": [],
+        "name": "altitude",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Information about the producers of the coffee, often encompassing multiple types of producers or collaborative efforts.",
+        "enum": [],
+        "name": "producers",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "The method of processing the coffee, indicating washing and fermentation techniques.",
+        "enum": [],
+        "name": "process",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "The source region of the product, typically specifying country and region.",
+        "enum": [],
+        "name": "origin",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Denoting the specific coffee variety, indicating genetic type and characteristic qualities.",
+        "enum": [],
+        "name": "variety",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Specific flavor notes that can be detected in the coffee's flavor profile.",
+        "enum": [],
+        "name": "taste_notes",
+        "required": false,
+        "type": "array"
+      },
+      {
+        "description": "An expanded overview or deeper insight into the product specifics, features, and benefits.",
+        "enum": [],
+        "name": "detailed_description",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "In-depth information about the producer, possibly including history, ethos, and farming practices.",
+        "enum": [],
+        "name": "producer_information",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "A descriptive promotional introduction to the product highlighting unique features or selling points.",
+        "enum": [],
+        "name": "intro_description",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "The base price of the product excluding some additional costs or aftermarket charges.",
+        "enum": [],
+        "name": "base_price",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Information related to tax billed on product pricing.",
+        "enum": [],
+        "name": "tax_info",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Detailed attributes and characteristics of the product usually including growth and processing conditions.",
+        "enum": [],
+        "name": "properties",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Flavor descriptors associated with taste experience such as fruity or nutty notes.",
+        "enum": [],
+        "name": "taste",
+        "required": false,
+        "type": "array"
+      },
+      {
+        "description": "A comprehensive description focusing on unique product attributes or cultural significance.",
+        "enum": [],
+        "name": "product_detail_description",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Supplementary details that enrich the product story or specifications.",
+        "enum": [],
+        "name": "additional_description",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Further elaboration on the producer portfolio, emphasizing unique selling propositions.",
+        "enum": [],
+        "name": "producer_details",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Background or additional information about the producer or farming practices.",
+        "enum": [],
+        "name": "producer_info",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Breakdown of the product price with considerations for unit cost and additional expenses.",
+        "enum": [],
+        "name": "price_info",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Short introductory description providing the initial product insight or appeal elements.",
+        "enum": [],
+        "name": "description_intro",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Information regarding delivery expectations including time, method, and service provider.",
+        "enum": [],
+        "name": "delivery_info",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Defined specifications or qualities of the product specifying features or components.",
+        "enum": [],
+        "name": "attributes",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Contextual background story providing insights into product development or historical essence.",
+        "enum": [],
+        "name": "The Story Behind",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Extended narrative providing comprehensive understanding or storytelling about the product's journey or utilization.",
+        "enum": [],
+        "name": "long_description",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Seller or producer's message to the consumers, potentially inviting engagement or learning more about their craft.",
+        "enum": [],
+        "name": "meet_the_producer",
+        "required": false,
+        "type": "string"
+      },
+      {
+        "description": "Type specifying variety in context to the product, often relating to origin-based qualities.",
+        "enum": [],
+        "name": "varietal",
+        "required": false,
+        "type": "string"
+      }
+    ]
+  }
