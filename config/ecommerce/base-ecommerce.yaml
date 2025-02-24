@@ -202,16 +202,16 @@ pimcore_ecommerce_framework:
                                 carCharge: "200"
 
 
-    checkout_manager:
-        tenants:
-            default:
-                payment:
-                    provider: paypal
-                steps:
-                    deliveryaddress:
-                        class: \Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\DeliveryAddress
-                    confirm:
-                        class: \App\Ecommerce\CheckoutManager\Confirm
+#    checkout_manager:
+#        tenants:
+#            default:
+#                payment:
+#                    provider: paypal
+#                steps:
+#                    deliveryaddress:
+#                        class: \Pimcore\Bundle\EcommerceFrameworkBundle\CheckoutManager\DeliveryAddress
+#                    confirm:
+#                        class: \App\Ecommerce\CheckoutManager\Confirm
 
 
     order_manager:
@@ -220,38 +220,38 @@ pimcore_ecommerce_framework:
                 options:
                     parent_order_folder: /Shop/Orders/%%Y/%%m/%%d
 
-    payment_manager:
-        # Service id of payment manager implementation - following value is default value an can be omitted
-        #        payment_manager_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\PaymentManager
-
-        # Configuration of payment providers, key is name of provider
-        providers:
-            paypal:
-                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\PayPalSmartPaymentButton
-                profile: sandbox
-                profiles:
-                    sandbox:
-                        client_id: '%env(paypal_client_id)%'
-                        client_secret: '%env(paypal_secret_id)%'
-
-                        # defines, if payment caputure should take place automatic or manual, default is automatic
-                        capture_strategy: automatic
-
-                        # defines mode of PayPal API, default value is sandbox
-                        mode: sandbox
-
-                        # defines PayPal application context for shipping, default value is NO_SHIPPING
-                        # see https://developer.paypal.com/docs/api/orders/v2/#definition-application_context
-                        shipping_preference: NO_SHIPPING
-
-                        # defines PayPal application context for user action, default value is PAY_NOW
-                        # see https://developer.paypal.com/docs/api/orders/v2/#definition-application_context
-                        user_action: PAY_NOW
-
-                    live:
-                        client_id: <YOUR PAYPAL REST API CLIENT ID>
-                        client_secret: <YOUR PAYPAL REST API CLIENT SECRET>
-                        mode: live
+#    payment_manager:
+#        # Service id of payment manager implementation - following value is default value an can be omitted
+#        #        payment_manager_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\PaymentManager
+#
+#        # Configuration of payment providers, key is name of provider
+#        providers:
+#            paypal:
+#                provider_id: Pimcore\Bundle\EcommerceFrameworkBundle\PaymentManager\Payment\PayPalSmartPaymentButton
+#                profile: sandbox
+#                profiles:
+#                    sandbox:
+#                        client_id: '%env(paypal_client_id)%'
+#                        client_secret: '%env(paypal_secret_id)%'
+#
+#                        # defines, if payment caputure should take place automatic or manual, default is automatic
+#                        capture_strategy: automatic
+#
+#                        # defines mode of PayPal API, default value is sandbox
+#                        mode: sandbox
+#
+#                        # defines PayPal application context for shipping, default value is NO_SHIPPING
+#                        # see https://developer.paypal.com/docs/api/orders/v2/#definition-application_context
+#                        shipping_preference: NO_SHIPPING
+#
+#                        # defines PayPal application context for user action, default value is PAY_NOW
+#                        # see https://developer.paypal.com/docs/api/orders/v2/#definition-application_context
+#                        user_action: PAY_NOW
+#
+#                    live:
+#                        client_id: <YOUR PAYPAL REST API CLIENT ID>
+#                        client_secret: <YOUR PAYPAL REST API CLIENT SECRET>
+#                        mode: live
 
     # tracking manager - define which trackers (e.g. Google Analytics Universal Ecommerce) are active and should
     # be called when you track something via TrackingManager

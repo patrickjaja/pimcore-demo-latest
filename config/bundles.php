@@ -4,7 +4,6 @@ use CustomerManagementFrameworkBundle\PimcoreCustomerManagementFrameworkBundle;
 use OutputDataConfigToolkitBundle\OutputDataConfigToolkitBundle;
 use Pimcore\Bundle\DataHubBundle\PimcoreDataHubBundle;
 use Pimcore\Bundle\EcommerceFrameworkBundle\PimcoreEcommerceFrameworkBundle;
-use Pimcore\Bundle\EcommerceFrameworkBundle\PimcorePaymentProviderPayPalSmartPaymentButtonBundle;
 use Pimcore\Bundle\GlossaryBundle\PimcoreGlossaryBundle;
 use Pimcore\Bundle\GoogleMarketingBundle\PimcoreGoogleMarketingBundle;
 use Pimcore\Bundle\NewsletterBundle\PimcoreNewsletterBundle;
@@ -24,14 +23,13 @@ use Pimcore\Bundle\QuillBundle\PimcoreQuillBundle;
 use Pimcore\Bundle\GenericExecutionEngineBundle\PimcoreGenericExecutionEngineBundle;
 
 return [
-    //Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
+    Twig\Extra\TwigExtraBundle\TwigExtraBundle::class => ['all' => true],
     PimcoreEcommerceFrameworkBundle::class => ['all' => true],
     PimcorePersonalizationBundle::class => ['all' => true],
     PimcoreCustomerManagementFrameworkBundle::class => ['all' => true],
     PimcoreGlossaryBundle::class => ['all' => true],
     PimcoreSeoBundle::class => ['all' => true],
     PimcoreSimpleBackendSearchBundle::class => ['all' => true],
-//    PimcorePaymentProviderPayPalSmartPaymentButtonBundle::class => ['all' => true],
     PimcoreDataHubBundle::class => ['all' => true],
     OutputDataConfigToolkitBundle::class => ['all' => true],
     Web2PrintToolsBundle::class => ['all' => true],
