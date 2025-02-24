@@ -25,6 +25,7 @@
     "pimcore/data-hub": "*",
     "pimcore/ecommerce-framework-bundle": "*",
     "pimcore/newsletter-bundle": "*",
+    "pimcore/paas": "^1.5",
     "pimcore/payment-provider-paypal-smart-payment-button": "^2.0",
     "pimcore/pimcore": "*",
     "pimcore/platform-version": "^2024.4",
@@ -62,6 +63,10 @@
     "symfony-assets-install": "relative"
   },
   "repositories": {
+    "pimcore": {
+      "type": "composer",
+      "url": "https://repo.pimcore.com/pimcore-paas-demo/"
+    },
     "dev": {
       "type": "path",
       "url": "./dev/*/*",

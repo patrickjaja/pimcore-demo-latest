@@ -1,0 +1,288 @@
+# Complete list of all available properties: https://docs.platform.sh/create-apps/app-reference.html
+
+# This defines the main Pimcore application
+# If you're using Direct Edit Bundle, please enable Mercure at the end of this file
+pimcore:
+    type: php:8.3
+
+    # Flexible resources sizing: https://docs.platform.sh/create-apps/flexible-resources.html
+    # If you need to tweak CPU and RAM allocation, you can disable the auto-sizing and set your own.
+    # container_memory = base_memory + (memory_ratio * CPU)
+    size: AUTO
+    #resources:
+    #    base_memory: 1024
+    #    memory_ratio: 1024
+
+    build:
+        flavor: none
+
+    runtime:
+        # enable this for Xdebug support
+        #xdebug:
+        #idekey: PHPSTORM
+        extensions:
+        - apcu
+        - amqp
+        - curl
+        - dom
+        - exif
+        - fileinfo
+        - gd
+        - iconv
+        - imagick
+        - imap
+        - mbstring
+        - opcache
+        - pdo_mysql
+        - redis
+        - simplexml
+        - sodium
+        - zip
+
+    variables:
+        php:
+            memory_limit: 1024M
+            opcache.enable: "1"
+            opcache.preload_user: "web"
+            opcache.preload: "config/preload.php"
+            opcache.memory_consumption: 256
+            opcache.max_accelerated_files: 20000
+            assert.active: false
+            display_errors: false
+            display_startup_errors: false
+            register_argc_argv: false
+            session.use_strict_mode: true
+            zend.detect_unicode: false
+            realpath_cache_ttl: 3600
+            session.gc_probability: 0
+        env:
+            APP_CACHE_DIR: /app/localCache
+            MAGICK_CONFIGURE_PATH: "/app/.magick/:/etc/ImageMagick-7/"
+
+    dependencies:
+        php:
+            composer/composer: '^2'
+
+    disk: 4096
+
+    # The relationships of the application with services or other applications.
+    #
+    # The left-hand side is the name of the relationship as it will be exposed
+    # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
+    # side is in the form `<service name>:<endpoint name>`.
+    relationships:
+        database: "db:mysql"
+        redis: "redis:redis"
+        gotenberg8: "gotenberg8:http"
+        queue: "queue:rabbitmq"
+        # enable this if Elasticsearch is required, also enable it in services.yaml
+        #elasticsearch: 'elasticsearch:elasticsearch'
+        # enable this if Opensearch is required, also enable it in services.yaml
+        # opensearch: 'opensearch:opensearch'
+
+    # The 'mounts' describe writable, persistent filesystem mounts in the application.
+    mounts:
+        "/var/":
+            source: service
+            service: storage
+            source_path: "var/"
+        "/public/var":
+            source: service
+            service: storage
+            source_path: "public/var"
+        "/localCache":
+            source: local
+            source_path: "localCache"
+        # Sitemaps specific configuration
+        # "/sitemaps/":
+        #     source: service
+        #     service: storage
+        #     source_path: "sitemaps/"
+
+    # The configuration of app when it is exposed to the web.
+    web:
+        locations:
+            # Sitemaps specific configuration
+            # "/sitemaps":
+            #     root: "sitemaps"
+            #     passthru: false
+            #     allow: true
+            #     scripts: false
+            "/var/tmp/thumbnails.*":
+                root: "public"
+                passthru: "/index.php"
+                allow: true
+                expires: 1y
+            "/var/assets":
+                root: "public/var/assets"
+                passthru: false
+                allow: true
+                scripts: false
+                rules:
+                    '/var/assets/.*\.php(/|$)$':
+                        allow: false
+                        scripts: false
+                        passthru: false
+                    '/\.(?!well-known/)':
+                        allow: false
+                        scripts: false
+                        passthru: false
+                    '(?:\.(?:bak|conf(ig)?|dist|fla|in[ci]|log|psd|sh|sql|sw[op])|~)$':
+                        allow: false
+                        scripts: false
+                        passthru: false
+            "/":
+                root: "public"
+                passthru: "/index.php"
+                allow: true
+                rules:
+                    '^/cache-buster-(?:\d+)/(?<path>.*)$':
+                        allow: true
+                        passthru: "/$path"
+                    '/\.(?!well-known/)':
+                        allow: false
+                        scripts: false
+                        passthru: false
+                    '(?:\.(?:bak|conf(ig)?|dist|fla|in[ci]|log|psd|sh|sql|sw[op])|~)$':
+                        allow: false
+                        scripts: false
+                        passthru: false
+                    '^(?!/var/tmp/thumbnails/).*/(image|video)-thumb__\d+__.*':
+                        allow: false
+                        scripts: false
+                        expires: 1y
+                        passthru: "/var/tmp/thumbnails$uri"
+                    '^(?!/admin|/asset/webdav)(?!.*(image|video)-thumb__.*)(.+?)\.((?:css|js)(?:\.map)?|jpe?g|gif|png|svgz?|eps|exe|gz|zip|mp\d|m4a|ogg|ogv|webp|webm|pdf|docx?|xlsx?|pptx?)$':
+                        allow: true
+                        scripts: false
+                        passthru: "/var/assets$uri"
+                    # '^/sitemap(?:\.\w+)?\.xml$':
+                    #     allow: true
+                    #     scripts: false
+                    #     passthru: "/sitemaps$uri"
+
+    hooks:
+        build: |
+            set -ex
+
+            # Export vars
+            . "${PLATFORM_APP_DIR}/.platform-scripts/build/export-vars.sh"
+
+            # Run the build scripts
+            "${PLATFORM_APP_DIR}/.platform-scripts/build.sh"
+
+            php ./bin/console assets:install --no-interaction --symlink --relative --ignore-maintenance-mode
+
+        deploy: |
+            set -ex
+
+            # Run default deploy scripts
+            # Common tasks such as migrations and classes-rebuild are done already in .platform-scripts/deploy/pimcore-commands.sh
+            "${PLATFORM_APP_DIR}/.platform-scripts/deploy.sh"
+
+            # Here you can add your own deployment scripts, such as custom migrations or bundle commands
+            # e.g.
+            # php ./bin/console app:custom-command --foo=bar
+            # php ./bin/console datahub:simple-rest:create-or-update-mapping --no-interaction --ignore-maintenance-mode
+            # php ./bin/console datahub:simple-rest:init-index --no-interaction --ignore-maintenance-mode
+
+            # This needs to be the last line - it disables the maintenance mode / page
+            "${PLATFORM_APP_DIR}/.platform-scripts/deploy/complete.sh"
+    # The configuration of scheduled execution.
+    crons:
+        pimcore_maintenance:
+            spec: "*/5 * * * *"
+            commands:
+                start: "php /app/bin/console pimcore:maintenance"
+        # pimcore_portal_engine_update:
+        #     spec: "*/5 * * * *"
+        #     commands:
+        #         start: "php /app/bin/console portal-engine:update:process-index-queue --processes=3"
+        logrotate:
+            spec: "45 1 * * *"
+            commands:
+                start: "shtool rotate -n10 $PLATFORM_APP_DIR/var/log/*.log"
+
+    workers:
+        worker_core:
+            size: S
+            resources:
+                base_memory: 64
+                memory_ratio: 128
+            commands:
+        # pre_start clear:cache should be added to the workers because the deploy hook will only clear the cache in the web container
+                pre_start: |
+                    php $PLATFORM_APP_DIR/bin/console cache:clear
+                start: |
+                    php $PLATFORM_APP_DIR/bin/console messenger:consume pimcore_core pimcore_maintenance pimcore_scheduled_tasks pimcore_asset_update pimcore_search_backend_message pimcore_image_optimize --memory-limit=250M --time-limit=3600
+# Enable this for Portal Engine bundle
+        # worker_portal_engine:
+        #     size: S
+        #     resources:
+        #         base_memory: 64
+        #         memory_ratio: 128
+        #     commands:
+        #         pre_start: |
+        #             php $PLATFORM_APP_DIR/bin/console cache:clear
+        #         start: |
+        #             php /app/bin/console messenger:consume portal-engine-async pimcore_index_queues pimcore_generic_data_index_queue
+# add more workers as needed for other bundles, e.g. data import
+    # worker_additional_bundles:
+    #     size: S
+    #     resources:
+    #         base_memory: 64
+    #         memory_ratio: 128
+    #     commands:
+    #         pre_start: |
+    #             php $PLATFORM_APP_DIR/bin/console cache:clear
+    #         start: |
+    #             php /app/bin/console messenger:consume pimcore_data_import pimcore_datahub_fileexport scheduler_generic_data_index pimcore_datahub_webhooks pimcore_data_quality_management pimcore_alternative_element_trees pimcore_generic_execution_engine --memory-limit=250M --time-limit=3600
+
+# Enable this app for Mercure support (when using Pimcore Direct Edit Bundle)
+# Don't forget to enable the necessary routes for Mercure in routes.yaml
+#mercure:
+#    type: golang:1.18
+#    disk: 2048
+#    size: M
+#    #resources:
+#    #    base_memory: 64
+#    #    memory_ratio: 128
+#    mounts:
+#        "database": { source: local, source_path: "database" }
+#        "/.local": { source: local, source_path: .local }
+#    web:
+#        commands:
+#            start: ./mercure run --config Caddyfile
+#        locations:
+#            /:
+#                passthru: true
+#                scripts: false
+#                allow: true
+#                request_buffering:
+#                    enabled: false
+#                headers:
+#                    Access-Control-Allow-Origin: "*"
+#                rules:
+#                    '^/hub/(?<mercureuri>.+)$':
+#                        passthru: '/$mercureuri'
+#
+#    variables:
+#        env:
+#            MERCUREVERSION: 0.15.9
+#
+#    build:
+#        flavor: none
+#    hooks:
+#        build: |
+#            # Install Mercure using cache
+#            FILE="mercure_Linux_x86_64.tar.gz"
+#            if [ ! -f "$PLATFORM_CACHE_DIR/$FILE" ]; then
+#              URL="https://github.com/dunglas/mercure/releases/download/v${MERCUREVERSION}/$FILE"
+#              wget -O "$PLATFORM_CACHE_DIR/$FILE" $URL
+#            else
+#              echo "Found $FILE in cache, using cache"
+#            fi
+#            file $PLATFORM_CACHE_DIR/$FILE
+#            tar xvzf $PLATFORM_CACHE_DIR/$FILE
+#    source:
+#        root: .platform-scripts/mercure

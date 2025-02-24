@@ -61,14 +61,14 @@ This project is based on the Pimcore demo project (https://github.com/pimcore/de
 5.  **Convert AI generated Schema to PimCore schema Definition & import it:** (exemplary)
     ```bash
     # add your OPEN_ROUTER api key in .env file
-    docker compose exec php vendor/bin/console app:auto-map-json -i data/product_model_1.json -o cache/generated/class_StaticImportedProductType1_export.json -p data/prompt/model_prompt.md
-    docker compose exec php vendor/bin/console pimcore:definition:import:class cache/generated/class_StaticImportedProductType1_export.json
+    docker compose exec php bin/console app:auto-map-json -i data/product_model_1.json -o cache/generated/class_StaticImportedProductType1_export.json -p data/prompt/model_prompt.md
+    docker compose exec php bin/console pimcore:definition:import:class cache/generated/class_StaticImportedProductType1_export.json
     ```
 
 6.  **Convert AI generated data to PimCore product schema specific data & import it:** (exemplary)
     ```bash
-    docker compose exec php vendor/bin/console app:auto-map-data-json -i data/product_data_1.json -o cache/generated/data_StaticImportedProductType1_export.json -s cache/generated/class_StaticImportedProductType1_export.json -p data/prompt/data_prompt.md
-    docker compose exec php vendor/bin/console app:import-data-command -m cache/generated/class_StaticImportedProductType1_export.json -d cache/generated/data_StaticImportedProductType1_export.json
+    docker compose exec php bin/console app:auto-map-data-json -i data/product_data_1.json -o cache/generated/data_StaticImportedProductType1_export.json -s cache/generated/class_StaticImportedProductType1_export.json -p data/prompt/data_prompt.md
+    docker compose exec php bin/console app:import-data-command -m cache/generated/class_StaticImportedProductType1_export.json -d cache/generated/data_StaticImportedProductType1_export.json
     ```
 
 7.  **Verify Installation:** Access the Pimcore admin interface at http://localhost/admin. Navigate to "Data Objects" -> "Product Data" to view the imported product.

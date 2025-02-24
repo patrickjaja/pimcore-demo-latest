@@ -1,4 +1,6 @@
 imports:
+    - { resource: platform.yaml }
+    - { resource: platform.yaml }
     - { resource: 'local/' }
     - { resource: ecommerce/base-ecommerce.yaml }
     - { resource: cmf.yaml }

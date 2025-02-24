@@ -47,4 +47,5 @@ return [
     PimcoreXliffBundle::class => ['all' => true],
     PrestaSitemapBundle::class => ['all' => true],
     PimcoreGenericExecutionEngineBundle::class => ['all' => true],
+    \Pimcore\Bundle\EnterpriseSubscriptionToolsBundle\PimcoreEnterpriseSubscriptionToolsBundle::class => ['all' => true],
 ];

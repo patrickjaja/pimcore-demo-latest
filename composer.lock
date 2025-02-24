@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7cab1a8421afb129e8aac4b9fc4471e",
+    "content-hash": "c79a75b31a9aa6e335e7f62f35309d91",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -6868,6 +6868,50 @@
             "time": "2024-12-02T13:02:28+00:00"
         },
         {
+            "name": "pimcore/enterprise-subscription-tools",
+            "version": "v1.4.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.pimcore.com/pimcore-paas-demo/dists/pimcore/enterprise-subscription-tools/1.4.0.0/683c9bfb91df094160f878680cf3055de754d7ec.zip",
+                "reference": "683c9bfb91df094160f878680cf3055de754d7ec",
+                "mirrors": [
+                    {
+                        "url": "https://repo.pimcore.com/pimcore-paas-demo/dists/%package%/%version%/r%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "pimcore/pimcore": "^11.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.2",
+                "symfony/http-kernel": "^5.4 || ^6.1"
+            },
+            "type": "pimcore-bundle",
+            "extra": {
+                "pimcore": {
+                    "bundles": [
+                        "Pimcore\\Bundle\\EnterpriseSubscriptionToolsBundle\\PimcoreEnterpriseSubscriptionToolsBundle"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pimcore\\Bundle\\EnterpriseSubscriptionToolsBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://repo.pimcore.com/pimcore-paas-demo/downloads/",
+            "license": [
+                "PEL"
+            ],
+            "support": {
+                "source": "https://github.com/pimcore/enterprise-subscription-tools/tree/v1.4.0",
+                "issues": "https://github.com/pimcore/enterprise-subscription-tools/issues"
+            },
+            "time": "2024-05-02T08:38:55+00:00"
+        },
+        {
             "name": "pimcore/google-marketing-bundle",
             "version": "v1.1.1",
             "source": {
@@ -7105,6 +7149,41 @@
                 "source": "https://github.com/pimcore/output-data-config-toolkit/tree/v5.2.0"
             },
             "time": "2024-12-02T13:17:02+00:00"
+        },
+        {
+            "name": "pimcore/paas",
+            "version": "v1.5.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.pimcore.com/pimcore-paas-demo/dists/pimcore/paas/1.5.2.0/bb20c5379d72855c06d9400584485060969f7ed6.zip",
+                "reference": "bb20c5379d72855c06d9400584485060969f7ed6",
+                "mirrors": [
+                    {
+                        "url": "https://repo.pimcore.com/pimcore-paas-demo/dists/%package%/%version%/r%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "pimcore/enterprise-subscription-tools": "^1.0",
+                "platformsh/config-reader": "^2.4",
+                "symfony/amqp-messenger": "^6.2",
+                "symfony/console": "*",
+                "symfony/filesystem": "*"
+            },
+            "bin": [
+                "bin/pimcore-paas-install-config"
+            ],
+            "type": "pimcore-bundle",
+            "notification-url": "https://repo.pimcore.com/pimcore-paas-demo/downloads/",
+            "license": [
+                "Pimcore Enterprise License (PEL)"
+            ],
+            "support": {
+                "source": "https://github.com/pimcore/paas/tree/v1.5.2",
+                "issues": "https://github.com/pimcore/paas/issues"
+            },
+            "time": "2025-02-19T15:27:19+00:00"
         },
         {
             "name": "pimcore/payment-provider-paypal-smart-payment-button",
@@ -7700,6 +7779,49 @@
                 "source": "https://github.com/pimcore/web2print-tools/tree/v5.2.1"
             },
             "time": "2025-01-21T13:11:49+00:00"
+        },
+        {
+            "name": "platformsh/config-reader",
+            "version": "2.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/platformsh/config-reader-php.git",
+                "reference": "dc08f50f5a40a767457668ad154116c8ea89cfc6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/platformsh/config-reader-php/zipball/dc08f50f5a40a767457668ad154116c8ea89cfc6",
+                "reference": "dc08f50f5a40a767457668ad154116c8ea89cfc6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Platformsh\\ConfigReader\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Larry Garfield",
+                    "email": "larry@platform.sh"
+                }
+            ],
+            "description": "Small helper to access Platform.sh environment variables",
+            "support": {
+                "issues": "https://github.com/platformsh/config-reader-php/issues",
+                "source": "https://github.com/platformsh/config-reader-php/tree/2.4.1"
+            },
+            "time": "2023-09-14T17:07:00+00:00"
         },
         {
             "name": "presta/sitemap-bundle",
@@ -9113,6 +9235,75 @@
                 "source": "https://github.com/symfony-cmf/routing-bundle/tree/3.1.0"
             },
             "time": "2024-04-07T08:17:51+00:00"
+        },
+        {
+            "name": "symfony/amqp-messenger",
+            "version": "v6.4.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/amqp-messenger.git",
+                "reference": "4149e8d799f4a69077a1a8813c4ae4ea3819ce3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/amqp-messenger/zipball/4149e8d799f4a69077a1a8813c4ae4ea3819ce3c",
+                "reference": "4149e8d799f4a69077a1a8813c4ae4ea3819ce3c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-amqp": "*",
+                "php": ">=8.1",
+                "symfony/messenger": "^6.1|^7.0"
+            },
+            "require-dev": {
+                "symfony/event-dispatcher": "^5.4|^6.0|^7.0",
+                "symfony/process": "^5.4|^6.0|^7.0",
+                "symfony/property-access": "^5.4|^6.0|^7.0",
+                "symfony/serializer": "^5.4|^6.0|^7.0"
+            },
+            "type": "symfony-messenger-bridge",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Messenger\\Bridge\\Amqp\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony AMQP extension Messenger Bridge",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/amqp-messenger/tree/v6.4.13"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-09-25T14:18:03+00:00"
         },
         {
             "name": "symfony/asset",

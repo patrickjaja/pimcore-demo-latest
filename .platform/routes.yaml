@@ -1,8 +1,34 @@
-# Each route describes how an incoming URL is going to be processed by Pimcore PaaS.
+"https://{default}":
+    type: upstream
+    upstream: "pimcore:http"
+    cache:
+        enabled: false
+
 "https://www.{default}/":
     type: upstream
-    upstream: "app:http"
+    upstream: "pimcore:http"
+    cache:
+        enabled: false
 
-"https://{default}/":
-    type: redirect
-    to: "https://www.{default}/"
+# This is an example of addition additional sites or portals
+#"https://portal.{default}/":
+#    type: upstream
+#    upstream: "pimcore:http"
+#    id: portal1
+#    cache:
+#        enabled: false
+
+# Enable the following for Mercure support (Pimcore Direct Edit Bundle)
+# https://{default}/hub:
+#     type: upstream
+#     upstream: "mercure:http"
+#     cache:
+#         enabled: false
+
+# https://mercure.{default}:
+#     type: upstream
+#     upstream: "mercure:http"
+#     # the ID here is essential, it's used to dynamically set the Mercure URL for Pimcore in /config/pimcore/startup.php
+#     id: mercure
+#     cache:
+#         enabled: false

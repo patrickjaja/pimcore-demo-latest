@@ -79,7 +79,7 @@ class AutoMapProductDataJsonCommand extends Command
                 'Content-Type' => 'application/json',
             ],
             'json' => [
-                'model' => 'google/gemini-2.0-flash-001',
+                'model' => 'deepseek/deepseek-r1',
                 'messages' => [
                     ['role' => 'user', 'content' => $prompt]
                 ]

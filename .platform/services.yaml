@@ -1,20 +1,65 @@
-# The name given to the Redis service (lowercase alphanumeric only).
+
 redis:
-    # The type of your service (redis), which uses the format
-    # 'type:version'. Be sure to consult the Redis documentation
-    # (https://docs.platform.sh/add-services/redis.html#supported-versions)
-    # when choosing a version. If you specify a version number which is not available,
-    # the CLI will return an error.
-    type: redis:7.2
+  type: redis:7.0
+  configuration:
+    maxmemory_policy: volatile-lru
+  # Flexible resources sizing: https://docs.platform.sh/create-apps/flexible-resources.html
+  # If you need to tweak CPU and RAM allocation, you can disable the auto-sizing and set your own.
+  # container_memory = base_memory + (memory_ratio * CPU)
+  size: AUTO
+  # resources:
+  #   base_memory: 64
+  #   memory_ratio: 128
 
-# The name given to the MariaDB/MySQL service (lowercase alphanumeric only).
-mariadb:
-    # The type of your service (mariadb), which uses the format
-    # 'type:version'. Be sure to consult the MariaDB/MySQL documentation
-    # (https://docs.platform.sh/add-services/mysql.html#supported-versions)
-    # when choosing a version. If you specify a version number which is not available,
-    # the CLI will return an error.
-    type: mariadb:11.4
-    # The disk attribute is the size of the persistent disk (in MB) allocated to the service.
-    disk: 256
+gotenberg8:
+  type: gotenberg:8
+  size: AUTO
+  # resources:
+  #   base_memory: 64
+  #   memory_ratio: 128
 
+db:
+  type: mariadb:10.6
+  disk: 2048
+  size: AUTO
+  # configuration:
+  #   properties:
+  #     optimizer_switch: "rowid_filter=off"
+  #     optimizer_use_condition_selectivity: 1
+  #     table_definition_cache: 800
+  #     table_open_cache: 800
+  # resources:
+  #   base_memory: 64
+  #   memory_ratio: 128
+
+storage:
+  type: network-storage:2.0
+  disk: 2048
+  size: AUTO
+  # resources:
+  #   base_memory: 64
+  #   memory_ratio: 128
+
+queue:
+  type: rabbitmq:3.13
+  disk: 1024
+  size: AUTO
+  # resources:
+  #   base_memory: 768
+  #   memory_ratio: 1024
+
+# elasticsearch:
+#   type: elasticsearch-enterprise:8.5
+#   disk: 2048
+#   size: XL
+#  #resources:
+#  #  base_memory: 64
+#  #  memory_ratio: 128
+
+# opensearch:
+#   type: opensearch:2
+#   disk: 2048
+#   size: XL
+#  #resources:
+#  #  base_memory: 64
+#  #  memory_ratio: 128
