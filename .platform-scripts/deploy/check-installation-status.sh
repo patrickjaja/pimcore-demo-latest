@@ -2,7 +2,7 @@
 
 set -e
 
-#if [ ! -f var/.platform.installed ]; then
+if [ ! -f var/.platform.installed ]; then
 
     export PIMCORE_INSTALL_MYSQL_DATABASE=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r ".database[0].path")
     export PIMCORE_INSTALL_MYSQL_HOST_SOCKET=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r ".database[0].host")
@@ -31,4 +31,4 @@ set -e
 
     touch var/.platform.installed
 
-#fi
+fi
