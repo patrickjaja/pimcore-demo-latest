@@ -47,7 +47,7 @@ try {
     // mercure not defined
 }
 
-// Set gotenberghosturl 
+// Set gotenberghosturl
 try {
     if(!$platformsh->inBuild() && $platformsh->inRuntime()) {
         $routes = $platformsh->routes();

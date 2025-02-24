@@ -75,7 +75,7 @@ class AutoMapProductJsonCommand extends Command
                 'Content-Type' => 'application/json',
             ],
             'json' => [
-                'model' => 'google/gemini-2.0-flash-001',
+                'model' => 'openai/o3-mini',
                 'messages' => [
                     ['role' => 'user', 'content' => $prompt]
                 ]

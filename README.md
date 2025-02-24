@@ -55,7 +55,7 @@ This project is based on the Pimcore demo project (https://github.com/pimcore/de
 
 4.  **Clear Cache:** (Base)
     ```bash
-    docker compose exec php vendor/bin/console cache:clear
+    docker compose exec php bin/console cache:clear
     ```
 
 5.  **Convert AI generated Schema to PimCore schema Definition & import it:** (exemplary)

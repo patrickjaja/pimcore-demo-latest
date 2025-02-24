@@ -277,7 +277,7 @@ CREATE TABLE `messenger_messages` (
   `delivered_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_75EA56E016BA31DB` (`delivered_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=11624 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12382 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
 
@@ -1424,6 +1424,57 @@ CREATE TABLE `object_query_NE` (
 
 
 
+DROP TABLE IF EXISTS `object_query_StaticImportedProductType1`;
+CREATE TABLE `object_query_StaticImportedProductType1` (
+  `oo_id` int(11) unsigned NOT NULL DEFAULT 0,
+  `oo_classId` varchar(50) DEFAULT 'StaticImportedProductType1',
+  `oo_className` varchar(255) DEFAULT 'StaticImportedProductType1',
+  `Title` varchar(190) DEFAULT NULL,
+  `Manufacturer` varchar(190) DEFAULT NULL,
+  `Description` varchar(190) DEFAULT NULL,
+  `Intro` varchar(190) DEFAULT NULL,
+  `PriceUnit` varchar(190) DEFAULT NULL,
+  `ProducerStory` varchar(190) DEFAULT NULL,
+  `PropertiesHeight` varchar(190) DEFAULT NULL,
+  `PropertiesProducer` varchar(190) DEFAULT NULL,
+  `PropertiesProcess` varchar(190) DEFAULT NULL,
+  `PropertiesOrigin` varchar(190) DEFAULT NULL,
+  `PropertiesVariety` varchar(190) DEFAULT NULL,
+  `TasteProfile` text DEFAULT NULL,
+  `PriceUnitReference` varchar(190) DEFAULT NULL,
+  `PriceIncludesTax` varchar(190) DEFAULT NULL,
+  `DeliveryTime` varchar(190) DEFAULT NULL,
+  `Altitude` varchar(190) DEFAULT NULL,
+  `Producers` varchar(190) DEFAULT NULL,
+  `Process` varchar(190) DEFAULT NULL,
+  `Origin` varchar(190) DEFAULT NULL,
+  `Variety` varchar(190) DEFAULT NULL,
+  `TasteNotes` text DEFAULT NULL,
+  `DetailedDescription` varchar(190) DEFAULT NULL,
+  `ProducerInformation` varchar(190) DEFAULT NULL,
+  `IntroDescription` varchar(190) DEFAULT NULL,
+  `BasePrice` varchar(190) DEFAULT NULL,
+  `TaxInfo` varchar(190) DEFAULT NULL,
+  `ProductProperties` varchar(190) DEFAULT NULL,
+  `Taste` text DEFAULT NULL,
+  `ProductDetailDescription` varchar(190) DEFAULT NULL,
+  `AdditionalDescription` varchar(190) DEFAULT NULL,
+  `ProducerDetails` varchar(190) DEFAULT NULL,
+  `ProducerInfo` varchar(190) DEFAULT NULL,
+  `PriceInfo` varchar(190) DEFAULT NULL,
+  `DescriptionIntro` varchar(190) DEFAULT NULL,
+  `DeliveryInfo` varchar(190) DEFAULT NULL,
+  `Attributes` varchar(190) DEFAULT NULL,
+  `TheStoryBehind` varchar(190) DEFAULT NULL,
+  `LongDescription` varchar(190) DEFAULT NULL,
+  `MeetTheProducer` varchar(190) DEFAULT NULL,
+  `Varietal` varchar(190) DEFAULT NULL,
+  PRIMARY KEY (`oo_id`),
+  CONSTRAINT `fk_object_query_StaticImportedProductType1__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
 DROP TABLE IF EXISTS `object_relations_1`;
 CREATE TABLE `object_relations_1` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -1824,6 +1875,26 @@ CREATE TABLE `object_relations_NE` (
 
 
 
+DROP TABLE IF EXISTS `object_relations_StaticImportedProductType1`;
+CREATE TABLE `object_relations_StaticImportedProductType1` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `src_id` int(11) unsigned NOT NULL DEFAULT 0,
+  `dest_id` int(11) unsigned NOT NULL DEFAULT 0,
+  `type` enum('object','asset','document') NOT NULL,
+  `fieldname` varchar(70) NOT NULL DEFAULT '0',
+  `index` int(11) unsigned NOT NULL DEFAULT 0,
+  `ownertype` enum('object','fieldcollection','localizedfield','objectbrick') NOT NULL DEFAULT 'object',
+  `ownername` varchar(70) NOT NULL DEFAULT '',
+  `position` varchar(70) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `forward_lookup` (`src_id`,`ownertype`,`ownername`,`position`),
+  KEY `reverse_lookup` (`dest_id`,`type`),
+  KEY `fieldname` (`fieldname`),
+  CONSTRAINT `fk_object_relations_StaticImportedProductType1__src_id` FOREIGN KEY (`src_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
 DROP TABLE IF EXISTS `object_store_1`;
 CREATE TABLE `object_store_1` (
   `oo_id` int(10) unsigned NOT NULL DEFAULT 0,
@@ -2101,6 +2172,55 @@ CREATE TABLE `object_store_NE` (
   `gallery__hotspots` longtext DEFAULT NULL,
   PRIMARY KEY (`oo_id`),
   CONSTRAINT `fk_object_store_NE__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+
+DROP TABLE IF EXISTS `object_store_StaticImportedProductType1`;
+CREATE TABLE `object_store_StaticImportedProductType1` (
+  `oo_id` int(11) unsigned NOT NULL DEFAULT 0,
+  `Title` varchar(190) DEFAULT NULL,
+  `Manufacturer` varchar(190) DEFAULT NULL,
+  `Description` varchar(190) DEFAULT NULL,
+  `Intro` varchar(190) DEFAULT NULL,
+  `PriceUnit` varchar(190) DEFAULT NULL,
+  `ProducerStory` varchar(190) DEFAULT NULL,
+  `PropertiesHeight` varchar(190) DEFAULT NULL,
+  `PropertiesProducer` varchar(190) DEFAULT NULL,
+  `PropertiesProcess` varchar(190) DEFAULT NULL,
+  `PropertiesOrigin` varchar(190) DEFAULT NULL,
+  `PropertiesVariety` varchar(190) DEFAULT NULL,
+  `TasteProfile` text DEFAULT NULL,
+  `PriceUnitReference` varchar(190) DEFAULT NULL,
+  `PriceIncludesTax` varchar(190) DEFAULT NULL,
+  `DeliveryTime` varchar(190) DEFAULT NULL,
+  `Altitude` varchar(190) DEFAULT NULL,
+  `Producers` varchar(190) DEFAULT NULL,
+  `Process` varchar(190) DEFAULT NULL,
+  `Origin` varchar(190) DEFAULT NULL,
+  `Variety` varchar(190) DEFAULT NULL,
+  `TasteNotes` text DEFAULT NULL,
+  `DetailedDescription` varchar(190) DEFAULT NULL,
+  `ProducerInformation` varchar(190) DEFAULT NULL,
+  `IntroDescription` varchar(190) DEFAULT NULL,
+  `BasePrice` varchar(190) DEFAULT NULL,
+  `TaxInfo` varchar(190) DEFAULT NULL,
+  `ProductProperties` varchar(190) DEFAULT NULL,
+  `Taste` text DEFAULT NULL,
+  `ProductDetailDescription` varchar(190) DEFAULT NULL,
+  `AdditionalDescription` varchar(190) DEFAULT NULL,
+  `ProducerDetails` varchar(190) DEFAULT NULL,
+  `ProducerInfo` varchar(190) DEFAULT NULL,
+  `PriceInfo` varchar(190) DEFAULT NULL,
+  `DescriptionIntro` varchar(190) DEFAULT NULL,
+  `DeliveryInfo` varchar(190) DEFAULT NULL,
+  `Attributes` varchar(190) DEFAULT NULL,
+  `TheStoryBehind` varchar(190) DEFAULT NULL,
+  `LongDescription` varchar(190) DEFAULT NULL,
+  `MeetTheProducer` varchar(190) DEFAULT NULL,
+  `Varietal` varchar(190) DEFAULT NULL,
+  PRIMARY KEY (`oo_id`),
+  CONSTRAINT `fk_object_store_StaticImportedProductType1__oo_id` FOREIGN KEY (`oo_id`) REFERENCES `objects` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 

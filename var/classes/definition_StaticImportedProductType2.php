@@ -7,16 +7,16 @@
  * Fields Summary:
  * - Title [input]
  * - Manufacturer [input]
- * - Description [textarea]
- * - Intro [textarea]
+ * - Description [input]
+ * - Intro [input]
  * - PriceUnit [input]
- * - ProducerStory [textarea]
+ * - ProducerStory [input]
  * - PropertiesHeight [input]
  * - PropertiesProducer [input]
  * - PropertiesProcess [select]
  * - PropertiesOrigin [input]
  * - PropertiesVariety [input]
- * - TasteProfile [textarea]
+ * - TasteProfile [input]
  * - PriceUnitReference [input]
  * - PriceIncludesTax [input]
  * - DeliveryTime [input]
@@ -25,36 +25,36 @@
  * - Process [input]
  * - Origin [input]
  * - Variety [input]
- * - TasteNotes [textarea]
- * - DetailedDescription [textarea]
- * - ProducerInformation [textarea]
- * - IntroDescription [textarea]
+ * - TasteNotes [input]
+ * - DetailedDescription [input]
+ * - ProducerInformation [input]
+ * - IntroDescription [input]
  * - BasePrice [input]
  * - TaxInfo [input]
- * - ProductProperties2 [textarea]
- * - Taste [textarea]
- * - ProductDetailDescription [textarea]
- * - AdditionalDescription [textarea]
- * - ProducerDetails [textarea]
- * - ProducerInfo [textarea]
+ * - ProductProperties [input]
+ * - Taste [input]
+ * - ProductDetailDescription [input]
+ * - AdditionalDescription [input]
+ * - ProducerDetails [input]
+ * - ProducerInfo [input]
  * - PriceInfo [input]
- * - DescriptionIntro [textarea]
+ * - DescriptionIntro [input]
  * - DeliveryInfo [input]
  * - Attributes [input]
- * - TheStoryBehind [textarea]
- * - LongDescription [textarea]
- * - MeetTheProducer [textarea]
+ * - TheStoryBehind [input]
+ * - LongDescription [input]
+ * - MeetTheProducer [input]
  * - Varietal [input]
  */
 
 return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'dao' => NULL,
-   'id' => 'CoffeeProduct',
+   'id' => 'StaticImportedProductType1',
    'name' => 'StaticImportedProductType2',
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1740394833,
+   'modificationDate' => 1740401165,
    'userOwner' => NULL,
    'userModification' => 0,
    'parentClass' => '\\App\\Model\\Product\\AbstractProduct',
@@ -172,7 +172,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'defaultValueGenerator' => '',
               )),
               2 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'Description',
                  'title' => 'Description',
                  'tooltip' => 'A detailed description of the product, which provides potential buyers with insights into the product\'s features, use, and origin.',
@@ -190,14 +190,19 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
               3 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'Intro',
                  'title' => 'Intro',
                  'tooltip' => 'A brief introduction or promotional text about the product.',
@@ -215,11 +220,16 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
               4 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
@@ -252,7 +262,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'defaultValueGenerator' => '',
               )),
               5 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'ProducerStory',
                  'title' => 'Producer Story',
                  'tooltip' => 'Background story of the producer, detailing history, practices, and other relevant details.',
@@ -270,211 +280,190 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
               6 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Layout\Panel::__set_state(array(
-                 'name' => 'ProductProperties',
-                 'type' => NULL,
-                 'region' => NULL,
-                 'title' => 'Product Properties',
-                 'width' => 0,
-                 'height' => 0,
-                 'collapsible' => false,
-                 'collapsed' => false,
-                 'bodyStyle' => '',
-                 'datatype' => 'layout',
-                 'children' => 
-                array (
-                  0 => 
-                  \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-                     'name' => 'PropertiesHeight',
-                     'title' => 'Properties Height',
-                     'tooltip' => 'The geographic elevation where the coffee is grown, typically stated in meters above sea level.',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => false,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'fieldtype' => '',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => true,
-                     'visibleSearch' => true,
-                     'blockedVarsForExport' => 
-                    array (
-                    ),
-                     'defaultValue' => NULL,
-                     'columnLength' => 190,
-                     'regex' => '',
-                     'regexFlags' => 
-                    array (
-                    ),
-                     'unique' => false,
-                     'showCharCount' => false,
-                     'width' => '',
-                     'defaultValueGenerator' => '',
-                  )),
-                  1 => 
-                  \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-                     'name' => 'PropertiesProducer',
-                     'title' => 'Properties Producer',
-                     'tooltip' => 'The name of the person or organization that produces the coffee.',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => false,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'fieldtype' => '',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => true,
-                     'visibleSearch' => true,
-                     'blockedVarsForExport' => 
-                    array (
-                    ),
-                     'defaultValue' => NULL,
-                     'columnLength' => 190,
-                     'regex' => '',
-                     'regexFlags' => 
-                    array (
-                    ),
-                     'unique' => false,
-                     'showCharCount' => false,
-                     'width' => '',
-                     'defaultValueGenerator' => '',
-                  )),
-                  2 => 
-                  \Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
-                     'name' => 'PropertiesProcess',
-                     'title' => 'Properties Process',
-                     'tooltip' => 'The method used to process the coffee beans, such as Natural or Washed.',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => false,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'fieldtype' => '',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => false,
-                     'visibleSearch' => false,
-                     'blockedVarsForExport' => 
-                    array (
-                    ),
-                     'options' => 
-                    array (
-                      0 => 
-                      array (
-                        'key' => 'Natural',
-                        'value' => 'Natural',
-                      ),
-                      1 => 
-                      array (
-                        'key' => 'Washed',
-                        'value' => 'Washed',
-                      ),
-                      2 => 
-                      array (
-                        'key' => 'Pulped Natural',
-                        'value' => 'Pulped Natural',
-                      ),
-                      3 => 
-                      array (
-                        'key' => 'Anaerobic Fermentation',
-                        'value' => 'Anaerobic Fermentation',
-                      ),
-                    ),
-                     'defaultValue' => '',
-                     'columnLength' => 190,
-                     'dynamicOptions' => false,
-                     'defaultValueGenerator' => '',
-                     'width' => '',
-                     'optionsProviderType' => 'configure',
-                     'optionsProviderClass' => '',
-                     'optionsProviderData' => '',
-                  )),
-                  3 => 
-                  \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-                     'name' => 'PropertiesOrigin',
-                     'title' => 'Properties Origin',
-                     'tooltip' => 'The geographic origin of the coffee, including country and possibly region.',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => false,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'fieldtype' => '',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => true,
-                     'visibleSearch' => true,
-                     'blockedVarsForExport' => 
-                    array (
-                    ),
-                     'defaultValue' => NULL,
-                     'columnLength' => 190,
-                     'regex' => '',
-                     'regexFlags' => 
-                    array (
-                    ),
-                     'unique' => false,
-                     'showCharCount' => false,
-                     'width' => '',
-                     'defaultValueGenerator' => '',
-                  )),
-                  4 => 
-                  \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
-                     'name' => 'PropertiesVariety',
-                     'title' => 'Properties Variety',
-                     'tooltip' => 'The coffee variety or cultivar, describing the specific type of coffee plant used.',
-                     'mandatory' => false,
-                     'noteditable' => false,
-                     'index' => false,
-                     'locked' => false,
-                     'style' => '',
-                     'permissions' => NULL,
-                     'fieldtype' => '',
-                     'relationType' => false,
-                     'invisible' => false,
-                     'visibleGridView' => true,
-                     'visibleSearch' => true,
-                     'blockedVarsForExport' => 
-                    array (
-                    ),
-                     'defaultValue' => NULL,
-                     'columnLength' => 190,
-                     'regex' => '',
-                     'regexFlags' => 
-                    array (
-                    ),
-                     'unique' => false,
-                     'showCharCount' => false,
-                     'width' => '',
-                     'defaultValueGenerator' => '',
-                  )),
-                ),
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                 'name' => 'PropertiesHeight',
+                 'title' => 'Properties Height',
+                 'tooltip' => 'The geographic elevation where the coffee is grown, typically stated in meters above sea level.',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
                  'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'fieldtype' => '',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => true,
+                 'visibleSearch' => true,
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'fieldtype' => 'panel',
-                 'layout' => NULL,
-                 'border' => false,
-                 'icon' => '',
-                 'labelWidth' => 100,
-                 'labelAlign' => 'left',
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
+                 'showCharCount' => false,
+                 'width' => '',
+                 'defaultValueGenerator' => '',
               )),
               7 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                 'name' => 'PropertiesProducer',
+                 'title' => 'Properties Producer',
+                 'tooltip' => 'The name of the person or organization that produces the coffee.',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'fieldtype' => '',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => true,
+                 'visibleSearch' => true,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
+                 'showCharCount' => false,
+                 'width' => '',
+                 'defaultValueGenerator' => '',
+              )),
+              8 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
+                 'name' => 'PropertiesProcess',
+                 'title' => 'Properties Process',
+                 'tooltip' => 'The method used to process the coffee beans, such as Natural or Washed.',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'fieldtype' => '',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => false,
+                 'visibleSearch' => false,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'options' => 
+                array (
+                  0 => 
+                  array (
+                    'key' => 'natural',
+                    'value' => 'natural',
+                  ),
+                  1 => 
+                  array (
+                    'key' => 'washed',
+                    'value' => 'washed',
+                  ),
+                  2 => 
+                  array (
+                    'key' => 'pulped_natural',
+                    'value' => 'pulped_natural',
+                  ),
+                  3 => 
+                  array (
+                    'key' => 'anaerobic_fermentation',
+                    'value' => 'anaerobic_fermentation',
+                  ),
+                ),
+                 'defaultValue' => '',
+                 'columnLength' => 190,
+                 'dynamicOptions' => false,
+                 'defaultValueGenerator' => '',
+                 'width' => '',
+                 'optionsProviderType' => 'configure',
+                 'optionsProviderClass' => '',
+                 'optionsProviderData' => '',
+              )),
+              9 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                 'name' => 'PropertiesOrigin',
+                 'title' => 'Properties Origin',
+                 'tooltip' => 'The geographic origin of the coffee, including country and possibly region.',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'fieldtype' => '',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => true,
+                 'visibleSearch' => true,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
+                 'showCharCount' => false,
+                 'width' => '',
+                 'defaultValueGenerator' => '',
+              )),
+              10 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                 'name' => 'PropertiesVariety',
+                 'title' => 'Properties Variety',
+                 'tooltip' => 'The coffee variety or cultivar, describing the specific type of coffee plant used.',
+                 'mandatory' => false,
+                 'noteditable' => false,
+                 'index' => false,
+                 'locked' => false,
+                 'style' => '',
+                 'permissions' => NULL,
+                 'fieldtype' => '',
+                 'relationType' => false,
+                 'invisible' => false,
+                 'visibleGridView' => true,
+                 'visibleSearch' => true,
+                 'blockedVarsForExport' => 
+                array (
+                ),
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
+                 'showCharCount' => false,
+                 'width' => '',
+                 'defaultValueGenerator' => '',
+              )),
+              11 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'TasteProfile',
                  'title' => 'Taste Profile',
                  'tooltip' => 'Attributes describing the flavor profile of the coffee as experienced during tasting.',
@@ -492,13 +481,18 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              8 => 
+              12 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'PriceUnitReference',
                  'title' => 'Price Unit Reference',
@@ -528,7 +522,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              9 => 
+              13 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'PriceIncludesTax',
                  'title' => 'Price Includes Tax',
@@ -558,7 +552,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              10 => 
+              14 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'DeliveryTime',
                  'title' => 'Delivery Time',
@@ -588,7 +582,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              11 => 
+              15 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'Altitude',
                  'title' => 'Altitude',
@@ -618,7 +612,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              12 => 
+              16 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'Producers',
                  'title' => 'Producers',
@@ -648,7 +642,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              13 => 
+              17 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'Process',
                  'title' => 'Process',
@@ -678,7 +672,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              14 => 
+              18 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'Origin',
                  'title' => 'Origin',
@@ -708,7 +702,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              15 => 
+              19 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'Variety',
                  'title' => 'Variety',
@@ -738,8 +732,8 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              16 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              20 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'TasteNotes',
                  'title' => 'Taste Notes',
                  'tooltip' => 'Specific flavor notes that can be detected in the coffee\'s flavor profile.',
@@ -757,14 +751,19 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              17 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              21 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'DetailedDescription',
                  'title' => 'Detailed Description',
                  'tooltip' => 'An expanded overview or deeper insight into the product specifics, features, and benefits.',
@@ -782,14 +781,19 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              18 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              22 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'ProducerInformation',
                  'title' => 'Producer Information',
                  'tooltip' => 'In-depth information about the producer, possibly including history, ethos, and farming practices.',
@@ -807,14 +811,19 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              19 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              23 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'IntroDescription',
                  'title' => 'Intro Description',
                  'tooltip' => 'A descriptive promotional introduction to the product highlighting unique features or selling points.',
@@ -832,13 +841,18 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              20 => 
+              24 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'BasePrice',
                  'title' => 'Base Price',
@@ -868,7 +882,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              21 => 
+              25 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'TaxInfo',
                  'title' => 'Tax Info',
@@ -898,10 +912,10 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              22 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
-                 'name' => 'ProductProperties2',
-                 'title' => 'Product Properties 2',
+              26 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+                 'name' => 'ProductProperties',
+                 'title' => 'Product Properties',
                  'tooltip' => 'Detailed attributes and characteristics of the product usually including growth and processing conditions.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -917,14 +931,19 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              23 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              27 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'Taste',
                  'title' => 'Taste',
                  'tooltip' => 'Flavor descriptors associated with taste experience such as fruity or nutty notes.',
@@ -942,14 +961,19 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              24 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              28 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'ProductDetailDescription',
                  'title' => 'Product Detail Description',
                  'tooltip' => 'A comprehensive description focusing on unique product attributes or cultural significance.',
@@ -967,14 +991,19 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              25 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              29 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'AdditionalDescription',
                  'title' => 'Additional Description',
                  'tooltip' => 'Supplementary details that enrich the product story or specifications.',
@@ -992,14 +1021,19 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              26 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              30 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'ProducerDetails',
                  'title' => 'Producer Details',
                  'tooltip' => 'Further elaboration on the producer portfolio, emphasizing unique selling propositions.',
@@ -1017,14 +1051,19 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              27 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              31 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'ProducerInfo',
                  'title' => 'Producer Info',
                  'tooltip' => 'Background or additional information about the producer or farming practices.',
@@ -1042,13 +1081,18 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              28 => 
+              32 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'PriceInfo',
                  'title' => 'Price Info',
@@ -1078,8 +1122,8 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              29 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              33 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'DescriptionIntro',
                  'title' => 'Description Intro',
                  'tooltip' => 'Short introductory description providing the initial product insight or appeal elements.',
@@ -1097,13 +1141,18 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              30 => 
+              34 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'DeliveryInfo',
                  'title' => 'Delivery Info',
@@ -1133,7 +1182,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              31 => 
+              35 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'Attributes',
                  'title' => 'Attributes',
@@ -1163,8 +1212,8 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'width' => '',
                  'defaultValueGenerator' => '',
               )),
-              32 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              36 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'TheStoryBehind',
                  'title' => 'The Story Behind',
                  'tooltip' => 'Contextual background story providing insights into product development or historical essence.',
@@ -1182,14 +1231,19 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              33 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              37 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'LongDescription',
                  'title' => 'Long Description',
                  'tooltip' => 'Extended narrative providing comprehensive understanding or storytelling about the product\'s journey or utilization.',
@@ -1207,14 +1261,19 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              34 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Textarea::__set_state(array(
+              38 => 
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'MeetTheProducer',
                  'title' => 'Meet The Producer',
                  'tooltip' => 'Seller or producer\'s message to the consumers, potentially inviting engagement or learning more about their craft.',
@@ -1232,13 +1291,18 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
-                 'maxLength' => NULL,
+                 'defaultValue' => NULL,
+                 'columnLength' => 190,
+                 'regex' => '',
+                 'regexFlags' => 
+                array (
+                ),
+                 'unique' => false,
                  'showCharCount' => false,
-                 'excludeFromSearchIndex' => false,
-                 'height' => '',
                  'width' => '',
+                 'defaultValueGenerator' => '',
               )),
-              35 => 
+              39 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'Varietal',
                  'title' => 'Varietal',

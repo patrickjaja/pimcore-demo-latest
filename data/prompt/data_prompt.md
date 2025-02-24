@@ -7,8 +7,12 @@ Data Structure JSON:
 {{DATA_STRUCTURE_INPUT}}
 
 Provide only the resulting JSON as your response, without any additional explanation or comments. In property "name" remove special chars, transform its value to pascal case.
-Dont use this list fieldnames, feel free to rename them:
-- properties -> productProperties
+
+Apply the following rules to property names:
+ - dont use name "properties", rename it to i.e. "productProperties"
+
+Apply the following rules to field values:
+ - Not longer than 150 characters
 
 Keep the property list flat, dont create additional objects or arrays.
 

@@ -52,8 +52,20 @@ class DataCommand extends AbstractCommand
             $dynamicModel->setPublished(true);
             foreach ($dataObject as $fieldName=>$fieldValue) {
                 $methodName = 'set'.$fieldName;
-                if (method_exists($dynamicModel, $methodName)){
-                    $dynamicModel->$methodName($fieldValue);
+                if (method_exists($dynamicModel, $methodName) && $fieldValue !== ""){
+                    $reflection = new \ReflectionMethod($dynamicModel, $methodName);
+                    $parameters = $reflection->getParameters();
+
+                    $firstParam = $parameters[0];
+                    $paramType = $firstParam->getType();
+
+                    if ($paramType instanceof \ReflectionNamedType) {
+                        $typeName = $paramType->getName();
+
+                        if ($typeName === 'string' && is_string($fieldValue)) {
+                            $dynamicModel->$methodName(substr($fieldValue,0,190));
+                        }
+                    }
                 }
 
                 if (isset($field['name'])) {

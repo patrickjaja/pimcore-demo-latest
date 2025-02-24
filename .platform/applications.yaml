@@ -74,7 +74,7 @@ pimcore:
         database: "db:mysql"
         redis: "redis:redis"
         gotenberg8: "gotenberg8:http"
-        queue: "queue:rabbitmq"
+#        queue: "queue:rabbitmq"
         # enable this if Elasticsearch is required, also enable it in services.yaml
         #elasticsearch: 'elasticsearch:elasticsearch'
         # enable this if Opensearch is required, also enable it in services.yaml
