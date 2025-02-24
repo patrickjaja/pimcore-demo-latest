@@ -31,7 +31,7 @@ return [
     PimcoreGlossaryBundle::class => ['all' => true],
     PimcoreSeoBundle::class => ['all' => true],
     PimcoreSimpleBackendSearchBundle::class => ['all' => true],
-    PimcorePaymentProviderPayPalSmartPaymentButtonBundle::class => ['all' => true],
+//    PimcorePaymentProviderPayPalSmartPaymentButtonBundle::class => ['all' => true],
     PimcoreDataHubBundle::class => ['all' => true],
     OutputDataConfigToolkitBundle::class => ['all' => true],
     Web2PrintToolsBundle::class => ['all' => true],
