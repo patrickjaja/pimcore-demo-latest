@@ -11,8 +11,9 @@ if [ ! -f var/.platform.installed ]; then
     export PIMCORE_INSTALL_MYSQL_PASSWORD=$(echo $PLATFORM_RELATIONSHIPS | base64 --decode | jq -r ".database[0].password")
 
     php ./vendor/bin/pimcore-install --no-interaction \
-        --no-debug \
-        --only-steps=setup_database,mark_migrations_as_done
+        --no-debug
+#        \
+#        --only-steps=setup_database,mark_migrations_as_done
 
     php bin/console doctrine:migrations:sync-metadata-storage --no-interaction --ignore-maintenance-mode
 
