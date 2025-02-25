@@ -6,7 +6,7 @@ php ./bin/console cache:clear --no-interaction --ignore-maintenance-mode
 
 rm -f ./var/config/maintenance.php
 mkdir -p var/config
-cp -R ./config/classes_del/* var/classes
+cp -R ./config/pimcore/classes_del/* var/classes # remember: copy classes manually from var/classes to classes_del
 echo '<?php return ["sessionId" => "command-line-dummy-session-id"];' >> var/config/maintenance.php
 
 php ./bin/console pimcore:deployment:classes-rebuild --create-classes --no-interaction --ignore-maintenance-mode
