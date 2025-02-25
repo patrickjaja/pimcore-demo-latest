@@ -14,5 +14,5 @@ echo '<?php return ["sessionId" => "command-line-dummy-session-id"];' >> var/con
 
 #php ./bin/console doctrine:migrations:migrate --no-interaction --ignore-maintenance-mode
 
-php ./bin/console app:auto-map-json -i data/example/product_model.json -o config/pimcore/class_StaticImportedProductType1_export.json -p data/prompt/model_prompt.md  --ignore-maintenance-mode
-php ./bin/console pimcore:definition:import:class config/pimcore/class_StaticImportedProductType1_export.json  --ignore-maintenance-mode
+php ./bin/console app:auto-map-json -i data/example/product_model.json -o var/class_StaticImportedProductType1_export.json -p data/prompt/model_prompt.md  --ignore-maintenance-mode
+php ./bin/console pimcore:definition:import:class var/class_StaticImportedProductType1_export.json  --ignore-maintenance-mode
