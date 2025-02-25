@@ -119,4 +119,3 @@ This project is based on the Pimcore demo project (https://github.com/pimcore/de
  - bin/console app:auto-map-data-json -i data/product_data_1.json -o cache/generated/data_StaticImportedProductType1_export.json -s cache/generated/class_StaticImportedProductType1_export.json -p data/prompt/data_prompt.md
  - bin/console app:import-data-command -m cache/generated/class_StaticImportedProductType1_export.json -d cache/generated/data_StaticImportedProductType1_export.json
 
-test
