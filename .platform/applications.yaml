@@ -93,6 +93,7 @@ pimcore:
         "/localCache":
             source: local
             source_path: "localCache"
+#        '/app/config/pimcore/classes': 'shared:files/config/pimcore/classes'
         # Sitemaps specific configuration
         # "/sitemaps/":
         #     source: service
