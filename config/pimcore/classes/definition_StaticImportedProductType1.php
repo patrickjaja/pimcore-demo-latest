@@ -16,7 +16,7 @@
  * - PropertiesProcess [select]
  * - PropertiesOrigin [input]
  * - PropertiesVariety [input]
- * - TasteProfile [input]
+ * - TasteProfile [multiselect]
  * - PriceUnitReference [input]
  * - PriceIncludesTax [input]
  * - DeliveryTime [input]
@@ -25,14 +25,14 @@
  * - Process [input]
  * - Origin [input]
  * - Variety [input]
- * - TasteNotes [input]
+ * - TasteNotes [multiselect]
  * - DetailedDescription [input]
  * - ProducerInformation [input]
  * - IntroDescription [input]
  * - BasePrice [input]
  * - TaxInfo [input]
  * - ProductProperties [input]
- * - Taste [input]
+ * - Taste [multiselect]
  * - ProductDetailDescription [input]
  * - AdditionalDescription [input]
  * - ProducerDetails [input]
@@ -50,11 +50,11 @@
 return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'dao' => NULL,
    'id' => 'StaticImportedProductType1',
-   'name' => 'StaticImportedProductType2',
+   'name' => 'StaticImportedProductType1',
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1740401165,
+   'modificationDate' => 1740410024,
    'userOwner' => NULL,
    'userModification' => 0,
    'parentClass' => '\\App\\Model\\Product\\AbstractProduct',
@@ -234,7 +234,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               4 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'PriceUnit',
-                 'title' => 'Price Unit',
+                 'title' => 'PriceUnit',
                  'tooltip' => 'Information about the price per unit, including any applicable tax and delivery cost information.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -264,7 +264,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               5 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'ProducerStory',
-                 'title' => 'Producer Story',
+                 'title' => 'ProducerStory',
                  'tooltip' => 'Background story of the producer, detailing history, practices, and other relevant details.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -294,7 +294,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               6 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'PropertiesHeight',
-                 'title' => 'Properties Height',
+                 'title' => 'PropertiesHeight',
                  'tooltip' => 'The geographic elevation where the coffee is grown, typically stated in meters above sea level.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -324,7 +324,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               7 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'PropertiesProducer',
-                 'title' => 'Properties Producer',
+                 'title' => 'PropertiesProducer',
                  'tooltip' => 'The name of the person or organization that produces the coffee.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -354,7 +354,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               8 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Select::__set_state(array(
                  'name' => 'PropertiesProcess',
-                 'title' => 'Properties Process',
+                 'title' => 'PropertiesProcess',
                  'tooltip' => 'The method used to process the coffee beans, such as Natural or Washed.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -405,7 +405,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               9 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'PropertiesOrigin',
-                 'title' => 'Properties Origin',
+                 'title' => 'PropertiesOrigin',
                  'tooltip' => 'The geographic origin of the coffee, including country and possibly region.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -435,7 +435,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               10 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'PropertiesVariety',
-                 'title' => 'Properties Variety',
+                 'title' => 'PropertiesVariety',
                  'tooltip' => 'The coffee variety or cultivar, describing the specific type of coffee plant used.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -463,9 +463,9 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'defaultValueGenerator' => '',
               )),
               11 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Multiselect::__set_state(array(
                  'name' => 'TasteProfile',
-                 'title' => 'Taste Profile',
+                 'title' => 'TasteProfile',
                  'tooltip' => 'Attributes describing the flavor profile of the coffee as experienced during tasting.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -481,21 +481,22 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
+                 'options' => NULL,
+                 'maxItems' => NULL,
+                 'renderType' => NULL,
+                 'dynamicOptions' => false,
                  'defaultValue' => NULL,
-                 'columnLength' => 190,
-                 'regex' => '',
-                 'regexFlags' => 
-                array (
-                ),
-                 'unique' => false,
-                 'showCharCount' => false,
+                 'height' => '',
                  'width' => '',
                  'defaultValueGenerator' => '',
+                 'optionsProviderType' => NULL,
+                 'optionsProviderClass' => NULL,
+                 'optionsProviderData' => NULL,
               )),
               12 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'PriceUnitReference',
-                 'title' => 'Price Unit Reference',
+                 'title' => 'PriceUnitReference',
                  'tooltip' => 'Standard unit price including reference to standard weight and additional cost details.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -525,7 +526,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               13 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'PriceIncludesTax',
-                 'title' => 'Price Includes Tax',
+                 'title' => 'PriceIncludesTax',
                  'tooltip' => 'Details on the inclusion of taxes in the product pricing.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -555,7 +556,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               14 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'DeliveryTime',
-                 'title' => 'Delivery Time',
+                 'title' => 'DeliveryTime',
                  'tooltip' => 'Expected delivery time for the product from order placement to delivery.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -733,9 +734,9 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'defaultValueGenerator' => '',
               )),
               20 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Multiselect::__set_state(array(
                  'name' => 'TasteNotes',
-                 'title' => 'Taste Notes',
+                 'title' => 'TasteNotes',
                  'tooltip' => 'Specific flavor notes that can be detected in the coffee\'s flavor profile.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -751,21 +752,22 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
+                 'options' => NULL,
+                 'maxItems' => NULL,
+                 'renderType' => NULL,
+                 'dynamicOptions' => false,
                  'defaultValue' => NULL,
-                 'columnLength' => 190,
-                 'regex' => '',
-                 'regexFlags' => 
-                array (
-                ),
-                 'unique' => false,
-                 'showCharCount' => false,
+                 'height' => '',
                  'width' => '',
                  'defaultValueGenerator' => '',
+                 'optionsProviderType' => NULL,
+                 'optionsProviderClass' => NULL,
+                 'optionsProviderData' => NULL,
               )),
               21 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'DetailedDescription',
-                 'title' => 'Detailed Description',
+                 'title' => 'DetailedDescription',
                  'tooltip' => 'An expanded overview or deeper insight into the product specifics, features, and benefits.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -795,7 +797,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               22 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'ProducerInformation',
-                 'title' => 'Producer Information',
+                 'title' => 'ProducerInformation',
                  'tooltip' => 'In-depth information about the producer, possibly including history, ethos, and farming practices.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -825,7 +827,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               23 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'IntroDescription',
-                 'title' => 'Intro Description',
+                 'title' => 'IntroDescription',
                  'tooltip' => 'A descriptive promotional introduction to the product highlighting unique features or selling points.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -855,7 +857,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               24 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'BasePrice',
-                 'title' => 'Base Price',
+                 'title' => 'BasePrice',
                  'tooltip' => 'The base price of the product excluding some additional costs or aftermarket charges.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -885,7 +887,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               25 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'TaxInfo',
-                 'title' => 'Tax Info',
+                 'title' => 'TaxInfo',
                  'tooltip' => 'Information related to tax billed on product pricing.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -915,7 +917,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               26 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'ProductProperties',
-                 'title' => 'Product Properties',
+                 'title' => 'ProductProperties',
                  'tooltip' => 'Detailed attributes and characteristics of the product usually including growth and processing conditions.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -943,7 +945,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'defaultValueGenerator' => '',
               )),
               27 => 
-              \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
+              \Pimcore\Model\DataObject\ClassDefinition\Data\Multiselect::__set_state(array(
                  'name' => 'Taste',
                  'title' => 'Taste',
                  'tooltip' => 'Flavor descriptors associated with taste experience such as fruity or nutty notes.',
@@ -961,21 +963,22 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                  'blockedVarsForExport' => 
                 array (
                 ),
+                 'options' => NULL,
+                 'maxItems' => NULL,
+                 'renderType' => NULL,
+                 'dynamicOptions' => false,
                  'defaultValue' => NULL,
-                 'columnLength' => 190,
-                 'regex' => '',
-                 'regexFlags' => 
-                array (
-                ),
-                 'unique' => false,
-                 'showCharCount' => false,
+                 'height' => '',
                  'width' => '',
                  'defaultValueGenerator' => '',
+                 'optionsProviderType' => NULL,
+                 'optionsProviderClass' => NULL,
+                 'optionsProviderData' => NULL,
               )),
               28 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'ProductDetailDescription',
-                 'title' => 'Product Detail Description',
+                 'title' => 'ProductDetailDescription',
                  'tooltip' => 'A comprehensive description focusing on unique product attributes or cultural significance.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -1005,7 +1008,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               29 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'AdditionalDescription',
-                 'title' => 'Additional Description',
+                 'title' => 'AdditionalDescription',
                  'tooltip' => 'Supplementary details that enrich the product story or specifications.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -1035,7 +1038,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               30 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'ProducerDetails',
-                 'title' => 'Producer Details',
+                 'title' => 'ProducerDetails',
                  'tooltip' => 'Further elaboration on the producer portfolio, emphasizing unique selling propositions.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -1065,7 +1068,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               31 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'ProducerInfo',
-                 'title' => 'Producer Info',
+                 'title' => 'ProducerInfo',
                  'tooltip' => 'Background or additional information about the producer or farming practices.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -1095,7 +1098,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               32 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'PriceInfo',
-                 'title' => 'Price Info',
+                 'title' => 'PriceInfo',
                  'tooltip' => 'Breakdown of the product price with considerations for unit cost and additional expenses.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -1125,7 +1128,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               33 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'DescriptionIntro',
-                 'title' => 'Description Intro',
+                 'title' => 'DescriptionIntro',
                  'tooltip' => 'Short introductory description providing the initial product insight or appeal elements.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -1155,7 +1158,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               34 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'DeliveryInfo',
-                 'title' => 'Delivery Info',
+                 'title' => 'DeliveryInfo',
                  'tooltip' => 'Information regarding delivery expectations including time, method, and service provider.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -1215,7 +1218,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               36 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'TheStoryBehind',
-                 'title' => 'The Story Behind',
+                 'title' => 'TheStoryBehind',
                  'tooltip' => 'Contextual background story providing insights into product development or historical essence.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -1245,7 +1248,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               37 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'LongDescription',
-                 'title' => 'Long Description',
+                 'title' => 'LongDescription',
                  'tooltip' => 'Extended narrative providing comprehensive understanding or storytelling about the product\'s journey or utilization.',
                  'mandatory' => false,
                  'noteditable' => false,
@@ -1275,7 +1278,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
               38 => 
               \Pimcore\Model\DataObject\ClassDefinition\Data\Input::__set_state(array(
                  'name' => 'MeetTheProducer',
-                 'title' => 'Meet The Producer',
+                 'title' => 'MeetTheProducer',
                  'tooltip' => 'Seller or producer\'s message to the consumers, potentially inviting engagement or learning more about their craft.',
                  'mandatory' => false,
                  'noteditable' => false,

@@ -12,8 +12,8 @@ if [ ! -f var/.platform.installed ]; then
 
     php ./vendor/bin/pimcore-install --no-interaction \
         --no-debug
-#        \
-#        --only-steps=setup_database,mark_migrations_as_done
+        \
+        --only-steps=setup_database,mark_migrations_as_done
 
     php bin/console doctrine:migrations:sync-metadata-storage --no-interaction --ignore-maintenance-mode
 
