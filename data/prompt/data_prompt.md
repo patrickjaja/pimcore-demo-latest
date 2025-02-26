@@ -11,6 +11,7 @@ Provide only the resulting JSON as your response, without any additional explana
 
 Apply the following rules to property names:
  - dont use name "properties", rename it to i.e. "productProperties"
+ - dont use name "MainImage", rename it to i.e. "productMainImage"
 
 Apply the following rules to field values:
  - Not longer than 150 characters
