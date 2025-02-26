@@ -48,7 +48,7 @@ class DataCommand extends AbstractCommand
         $saves = 0;
         foreach ($dataObjects as $dataObject) {
             $dynamicModel = new $dynamicModelPath();
-            $dynamicModel->setKey(rand(1,10000));
+            $dynamicModel->setKey(rand(100,10000000));
             $dynamicModel->setParentId(744);
             $dynamicModel->setPublished(true);
             foreach ($dataObject as $fieldName=>$fieldValue) {
