@@ -69,11 +69,8 @@ class DataCommand extends AbstractCommand
                         }
                     }
                 }
-
-                if (isset($field['name'])) {
-                    $setters[] = 'set' . ucfirst($field['name']);
-                }
             }
+            echo "data saved \n";
             $dynamicModel->save();
             $saves++;
         }

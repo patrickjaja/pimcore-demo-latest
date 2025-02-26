@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\Website\Tool\Text;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -62,7 +63,11 @@ class AutoMapProductJsonCommand extends Command
             '{{INPUT_JSON}}' => $inputJson
         ];
 
-        return str_replace(array_keys($placeholders), array_values($placeholders), $promptTemplate);
+        $prompt = str_replace(array_keys($placeholders), array_values($placeholders), $promptTemplate);
+
+        $prompt = Text::getStringAsOneLine($prompt);
+
+        return $prompt;
     }
 
     private function callOpenRouterAPI($prompt)
@@ -75,7 +80,7 @@ class AutoMapProductJsonCommand extends Command
                 'Content-Type' => 'application/json',
             ],
             'json' => [
-                'model' => 'openai/o3-mini',
+                'model' => 'anthropic/claude-3.7-sonnet',
                 'messages' => [
                     ['role' => 'user', 'content' => $prompt]
                 ]
