@@ -50,6 +50,20 @@ Input JSON (Filename: product_model_1.json):
 "name": "process",
 "required": false,
 "type": "string"
+},
+{
+"name": "taste_notes",
+"type": "array",
+"description": "Specific notes on the taste profile of the product",
+"required": false,
+"enum": [
+"Orange",
+"Aprikose",
+"Milchschokolade",
+"Clementine",
+"Ahornsirup",
+"Milchschokolade"
+]
 }
 ]
 }
@@ -201,6 +215,43 @@ Target JSON structure (Filename: class_StaticImportedProductType1_export.json):
 "dynamicOptions": false,
 "defaultValueGenerator": "",
 "width": "",
+"optionsProviderType": "configure",
+"optionsProviderClass": "",
+"optionsProviderData": "",
+"datatype": "data"
+},
+{
+"name": "tasteNotes",
+"title": "TasteNotes",
+"tooltip": "",
+"mandatory": false,
+"noteditable": false,
+"index": false,
+"locked": false,
+"style": "",
+"permissions": null,
+"fieldtype": "multiselect",
+"relationType": false,
+"invisible": false,
+"visibleGridView": false,
+"visibleSearch": false,
+"options": [
+{
+"key": "orange",
+"value": "Orange"
+},
+{
+"key": "aprikose",
+"value": "Aprikose"
+}
+],
+"maxItems": null,
+"renderType": "list",
+"dynamicOptions": false,
+"defaultValue": null,
+"height": "",
+"width": "",
+"defaultValueGenerator": "",
 "optionsProviderType": "configure",
 "optionsProviderClass": "",
 "optionsProviderData": "",

@@ -164,11 +164,11 @@ Data Structure JSON (Filename: product_model_1.json):
 "options": [
 {
 "key": "pulped_natural",
-"value": "Pulped Natural"
+"value": "pulped_natural"
 },
 {
 "key": "washed",
-"value": "Washed"
+"value": "washed"
 }
 ],
 "defaultValue": "",
@@ -182,25 +182,40 @@ Data Structure JSON (Filename: product_model_1.json):
 "datatype": "data"
 },
 {
-"name": "ProduzentInnen",
-"title": "ProduzentInnen",
-"tooltip": "(German) List of producers who created the product",
+"name": "tasteNotes",
+"title": "TasteNotes",
+"tooltip": "",
 "mandatory": false,
 "noteditable": false,
 "index": false,
 "locked": false,
 "style": "",
 "permissions": null,
-"fieldtype": "input",
+"fieldtype": "multiselect",
 "relationType": false,
 "invisible": false,
-"visibleGridView": true,
-"visibleSearch": true,
-"maxLength": null,
-"showCharCount": false,
-"excludeFromSearchIndex": false,
+"visibleGridView": false,
+"visibleSearch": false,
+"options": [
+{
+"key": "orange",
+"value": "Orange"
+},
+{
+"key": "aprikose",
+"value": "Aprikose"
+}
+],
+"maxItems": null,
+"renderType": "list",
+"dynamicOptions": false,
+"defaultValue": null,
 "height": "",
 "width": "",
+"defaultValueGenerator": "",
+"optionsProviderType": "configure",
+"optionsProviderClass": "",
+"optionsProviderData": "",
 "datatype": "data"
 }
 ],
