@@ -1,4 +1,5 @@
 You are an expert JSON transformer. Your task is to map the Input JSON against its Data Stucture JSON. Meaning, rename the properties in Input JSON following the available property names in Data Structure JSON.
+Remove or ignore empty objects in mapping.
 
 Input JSON:
 {{INPUT_JSON}}

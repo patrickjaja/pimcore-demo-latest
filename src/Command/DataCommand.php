@@ -19,6 +19,7 @@ use Pimcore\Console\AbstractCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\String\UnicodeString;
 
 class DataCommand extends AbstractCommand
 {
@@ -51,7 +52,7 @@ class DataCommand extends AbstractCommand
             $dynamicModel->setParentId(744);
             $dynamicModel->setPublished(true);
             foreach ($dataObject as $fieldName=>$fieldValue) {
-                $methodName = 'set'.$fieldName;
+                $methodName = 'set'.(new UnicodeString($fieldName))->camel()->title();
                 if (method_exists($dynamicModel, $methodName) && $fieldValue !== ""){
                     $reflection = new \ReflectionMethod($dynamicModel, $methodName);
                     $parameters = $reflection->getParameters();
@@ -63,15 +64,13 @@ class DataCommand extends AbstractCommand
                         $typeName = $paramType->getName();
 
                         if ($typeName === 'string' && is_string($fieldValue)) {
+                            echo "in model $dynamicModelPath i am calling $methodName with value $fieldValue \n";
                             $dynamicModel->$methodName(substr($fieldValue,0,190));
                         }
                     }
                 }
-
-                if (isset($field['name'])) {
-                    $setters[] = 'set' . ucfirst($field['name']);
-                }
             }
+            echo "data saved \n";
             $dynamicModel->save();
             $saves++;
         }

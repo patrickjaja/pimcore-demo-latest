@@ -101,6 +101,7 @@ This project is based on the Pimcore demo project (https://github.com/pimcore/de
     ```
     http://localhost/en/shop/Products/EN-MelittaR-Original--100--braun--40-St~p1193
     ```
+    - hosted container access via pimcore-cloud ssh
 
 **Pimcore Project Stack Notes:**
 
