@@ -1,256 +1,176 @@
 [
     {
-        "name": "title",
+        "name": "Product Name",
         "type": "string",
-        "description": "The name or title of the product",
+        "description": "The name of the product.",
         "required": false,
-        "enum": [
-            "Filterkaffee",
-            "Espresso",
-            "Zubeh\u00f6r",
-            "Tee",
-            "ana marcos",
-            "el limoncillo",
-            "kii",
-            "don claudio",
-            "de ca\u00f1a",
-            "chelchele",
-            "gaia",
-            "san antonio",
-            "cruzeiro",
-            "la pila & neighbours",
-            "worka",
-            "una seca",
-            "uni\u00f3n progreso",
-            "rodolfo garcia"
-        ]
+        "enum": []
     },
     {
-        "name": "manufacturer",
+        "name": "Description",
         "type": "string",
-        "description": "The manufacturer of the product",
+        "description": "A brief summary of the product.",
         "required": false,
-        "enum": [
-            "Neues Schwarz"
-        ]
+        "enum": []
     },
     {
-        "name": "description",
-        "type": "string",
-        "description": "A detailed description of the product",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "price",
-        "type": "string",
-        "description": "The price of the product in a textual format such as 'XX,XX \u20ac / XX Kilogram'.",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "delivery_time",
-        "type": "string",
-        "description": "The estimated delivery time for the product",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "height",
-        "type": "string",
-        "description": "The height at which the coffee is grown",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "producers",
-        "type": "string",
-        "description": "Individuals or groups involved in producing the product",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "process",
-        "type": "string",
-        "description": "The process used to prepare the coffee (e.g., 'Washed', 'Natural')",
-        "required": false,
-        "enum": [
-            "Washed",
-            "Washed, E.A.",
-            "Natural",
-            "Anaerobic Fermentation",
-            "Pulped Natural"
-        ]
-    },
-    {
-        "name": "origin",
-        "type": "string",
-        "description": "The origin of the coffee or product",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "variety",
-        "type": "string",
-        "description": "The coffee variety used in the product",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "taste",
+        "name": "Features",
         "type": "array",
-        "description": "Taste notes of the product",
+        "description": "List of notable functionalities associated with the product.",
         "required": false,
         "enum": [
-            "Himbeere",
-            "Gelbe Pflaume",
-            "Ahornsirup",
-            "Johannisbeere",
-            "Hibiskus",
-            "Rohrzucker",
-            "Apfel",
-            "Rote Traube",
-            "Karamell",
-            "Orange",
-            "Aprikose",
-            "Milchschokolade",
-            "Clementine",
-            "Ahornsirup",
-            "Milchschokolade",
-            "Brombeere",
-            "Gelbe Pflaume",
-            "Zitrone",
-            "Shortbread",
-            "Marzipan",
-            "Pflaume",
-            "Rohrzucker",
-            "Kakao",
-            "Pfirsich",
-            "Blaubeere",
-            "Schokolade",
-            "Schokolade",
-            "Nougat",
-            "Trockenfrucht",
-            "Birne",
-            "ger\u00f6stete N\u00fcsse",
-            "Waldhonig",
-            "Traube",
-            "Walnuss",
-            "Schokolade"
+            "Go ads free",
+            "Enjoy MDN ads-free with an MDN Plus subscription.",
+            "AI Help",
+            "Get real-time assistance and support.",
+            "Playground",
+            "Write,Test and Share your code.",
+            "Updates",
+            "Compatibility changes at a glance.Filter and sort updates that matter most to build your project",
+            "Collections",
+            "Build your perfect library. Or let us build it for you."
         ]
     },
     {
-        "name": "main_image",
-        "type": "string",
-        "description": "URL of the main image representing the product",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "taste_image",
-        "type": "string",
-        "description": "URL of the image representing product taste profile",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "producer_image",
-        "type": "string",
-        "description": "URL of the image representing the producers of the product",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "properties",
+        "name": "Images",
         "type": "array",
-        "description": "Various properties of the coffee, usually includes height, producers, process, origin, and variety",
+        "description": "Links to product-related images.",
         "required": false,
-        "enum": null
+        "enum": []
     },
     {
-        "name": "taste_notes",
+        "name": "Skip to main content",
+        "type": "string",
+        "description": "A navigation option to skip to the main content.",
+        "required": false,
+        "enum": []
+    },
+    {
+        "name": "References",
         "type": "array",
-        "description": "Specific notes on the taste profile of the product",
+        "description": "Links or mentions to reference materials associated with the product.",
         "required": false,
         "enum": [
-            "Orange",
-            "Aprikose",
-            "Milchschokolade",
-            "Clementine",
-            "Ahornsirup",
-            "Milchschokolade"
+            "Overview / Web Technology",
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "HTTP",
+            "Web APIs",
+            "Web Extensions",
+            "Accessibility",
+            "Web Technology"
         ]
     },
     {
-        "name": "images",
+        "name": "Learn",
         "type": "array",
-        "description": "Array of image URLs related to the product",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "intro",
-        "type": "string",
-        "description": "An introductory text or teaser about the product",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "articlenumber",
-        "type": "string",
-        "description": "The article number identifying the product",
+        "description": "Links or mentions regarding learning materials.",
         "required": false,
         "enum": [
-            "Specific articlenumber not found in given HTML.",
-            "N/A",
-            "10047.G",
-            "20054.G",
-            "20019.G",
-            "10115.G",
-            "20119.G",
-            "10057.G",
-            "20058.G",
-            "10085.G",
-            "20088.G",
-            "20162.G",
-            "10101.G",
-            "10159.G",
-            "10117.G",
-            "20083.G",
-            "20086.G",
-            "10083.G",
-            "20164.G",
-            "10163.G",
-            "10173.G",
-            "10171.G"
+            "Overview / MDN Learning Area",
+            "MDN Learning Area",
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Accessibility"
         ]
     },
     {
-        "name": "description_intro",
-        "type": "string",
-        "description": "Introductory description of the product",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "product_image",
-        "type": "string",
-        "description": "URL of the main product image",
-        "required": false,
-        "enum": null
-    },
-    {
-        "name": "product_properties",
+        "name": "Plus",
         "type": "array",
-        "description": "Various properties associated with the product",
+        "description": "Features related to the subscription-based services or sections.",
         "required": false,
-        "enum": null
+        "enum": [
+            "Overview",
+            "AI Help",
+            "Updates",
+            "Documentation",
+            "FAQ"
+        ]
     },
     {
-        "name": "detailed_description",
+        "name": "Curriculum",
         "type": "string",
-        "description": "A detailed description of the product offering more in-depth information",
+        "description": "Educational or curricular content related to the product.",
         "required": false,
-        "enum": null
+        "enum": []
+    },
+    {
+        "name": "Blog",
+        "type": "string",
+        "description": "Link or mention of the product's blog section.",
+        "required": false,
+        "enum": []
+    },
+    {
+        "name": "Tools",
+        "type": "array",
+        "description": "Functionalities or external tools related to the product.",
+        "required": false,
+        "enum": [
+            "Playground",
+            "HTTP Observatory",
+            "AI Help"
+        ]
+    },
+    {
+        "name": "Title",
+        "type": "string",
+        "description": "The title of the product or related content.",
+        "required": false,
+        "enum": []
+    },
+    {
+        "name": "Main Sections",
+        "type": "array",
+        "description": "Primary divisions or sections of the content or site.",
+        "required": false,
+        "enum": [
+            "References",
+            "Learn",
+            "Plus",
+            "Curriculum",
+            "Blog",
+            "Tools"
+        ]
+    },
+    {
+        "name": "language",
+        "type": "array",
+        "description": "Available languages for the content or product display.",
+        "required": false,
+        "enum": [
+            "English (US)",
+            "Espa\u00f1ol",
+            "Fran\u00e7ais",
+            "\u65e5\u672c\u8a9e",
+            "\ud55c\uad6d\uc5b4",
+            "Portugu\u00eas (do\u00a0Brasil)",
+            "\u0420\u0443\u0441\u0441\u043a\u0438\u0439",
+            "\u4e2d\u6587 (\u7b80\u4f53)",
+            "\u6b63\u9ad4\u4e2d\u6587 (\u7e41\u9ad4)"
+        ]
+    },
+    {
+        "name": "sections",
+        "type": "array",
+        "description": "Divisions of content related to the product.",
+        "required": false,
+        "enum": [
+            "References",
+            "Learn",
+            "Plus",
+            "Curriculum",
+            "Blog",
+            "Tools"
+        ]
+    },
+    {
+        "name": "Field Details",
+        "type": "array",
+        "description": "Includes specific product elements like articles, languages, and translated notices.",
+        "required": false,
+        "enum": []
     }
 ]
